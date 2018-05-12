@@ -29,6 +29,8 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 1. Clone the repository: ```git clone https://github.com/EngSwCIC/Athene.git```.
 2. Enter the project directory ```cd Athene```.
 3. Run ```bundle install``` to manage dependencies.
-4. Deploy the application server by running ```rails server``` on the projects root directory.
-5. The application will run by default on ```localhost:3000```.
-6. If you want to host the application on a different IP or port, just run ```rails server -b $IP -p $PORT```.
+4. If running for the first time create the database and migration
+   ```bundle exec rake db:create``` and ```bundle exec rake db:migrate```.
+5. Deploy the application server by running ```rails server``` on the projects root directory.
+6. The application will run by default on ```localhost:3000```.
+7. If you want to host the application on a different IP or port, just run ```rails server -b $IP -p $PORT```.
