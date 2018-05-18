@@ -12,7 +12,15 @@ class AutenticacaoController < ApplicationController
 
 	private
 	def verificar_database nome, senha
-		if User.exists?(nick: nome,senha: senha) #se existir o login sera bem sucedido
+		if nome == "" || senha == "" #valida se os campos estão preenchidos corretamente
+			if nome == "" && senha == ""
+				@message = "Campos vazios"
+			elsif nome == ""
+				@message = "Nickname não preenchido"
+			else
+				@message = "Senha não preenchida"
+			end
+		elsif User.exists?(nick: nome,senha: senha) #se existir o login sera bem sucedido
 			@message = "login feito com sucesso!"
 			cookies[:login] = nome #armazena o nome do usuario em um cookie para identificar se esta logado ou nao
 		else
