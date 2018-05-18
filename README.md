@@ -23,10 +23,15 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 3. Set up postgres you can either run ```$ su - postgres``` or ```$ sudo -u postgres psql```.
 4. Once you enter postgres command line create the database: 
 ```# create role Athene with createdb login password 'athene';```
-or you can also create by these commands:
-```# create user athene with password 'athene';```
-```# create database athene owner athene;```
-```# alter user athene superuser createrole createdb replication;```.
+
+   or you can also create by these commands:
+
+   ```# create user athene with password 'athene';```
+
+   ```# create database athene owner athene;```
+
+   ```# alter user athene superuser createrole createdb replication;```.
+
 5. Go back to your commando line and set up the database by running ```$ rake db:setup```.
 
 ### Instalation and execution
