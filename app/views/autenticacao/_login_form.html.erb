@@ -1,0 +1,16 @@
+<form action='login'>
+<p>
+<%= label_tag "Nickname:"%>
+<%= text_field_tag :nome%>
+</p>
+
+<p>
+<%= label_tag "Senha:"%>
+<%= password_field_tag :password%>
+</p>
+
+
+<%= submit_tag "Logar",
+	:name => 'Acesso' %>
+
+</form>

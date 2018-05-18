@@ -1,22 +1,11 @@
-<h1>Login</h1>
+<h1>Login</h1> <%# pagina de login%>
 
-<% if @message !=nil%>
-<%= @message %>
+<% if @message !=nil%> <%# verifica a mensagem enviada da controladora%>
+<%= @message %></br>
 <% end %>
 
-<form action='login'>
-<p>
-<%= label_tag "Nickname:"%>
-<%= text_field_tag :nome%>
-</p>
-
-<p>
-<%= label_tag "Senha:"%>
-<%= password_field_tag :password%>
-</p>
-
-
-<%= submit_tag "Logar",
-	:name => 'Acesso' %>
-
-</form>
+<% if cookies[:login].nil?%> <%# verifica se o usuario esta logado%>
+<%= render 'login_form'%> <%# caso nao esteja, imprime o formulario de login%>
+<% else%> <%# caso esteja cria um link para que o usuario possa deslogar%>
+<%= link_to "logout",:action => 'logout'%>
+<% end%>
