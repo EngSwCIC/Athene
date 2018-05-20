@@ -22,7 +22,7 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 2. Install postgres gem interface with rails: run ```$ gem install pg```.
 3. Set up postgres you can either run ```$ su - postgres``` or ```$ sudo -u postgres psql```.
 4. Once you enter postgres command line create the database: 
-```# create role Athene with createdb login password 'athene';```
+```# create role athene with createdb login password 'athene';```
 
    or you can also create by these commands:
 
