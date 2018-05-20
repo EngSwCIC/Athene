@@ -6,7 +6,7 @@ RSpec.describe AutenticacaoController, type: :controller do
 	describe "GET #login" do
 		it "acessa a pagina de login" do
 			get :login, params: {}, session: valid_session
-			expect(response.status).to eq(200)
+			expect(response).to render_template("login")
 		end
 
 		it "entra em uma pagina de login parametrizada sem nick e senha" do
