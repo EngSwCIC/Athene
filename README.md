@@ -44,3 +44,9 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 5. Deploy the application server by running ```rails server``` on the projects root directory.
 6. The application will run by default on ```localhost:3000```.
 7. If you want to host the application on a different IP or port, just run ```rails server -b $IP -p $PORT```.
+
+### Testing Aplication
+
+1. Go to the aplication root in your terminal(folder Athene)
+2. Run ```bundle update``` to add gem tests dependencies(if you have already installed bundle then you can jump this step).
+3. You will run the tests by just typing ```cucumber``` in your terminal.
