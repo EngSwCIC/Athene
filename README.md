@@ -21,7 +21,17 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 1. Make sure you have postgres installed on your computer.
 2. Install postgres gem interface with rails: run ```$ gem install pg```.
 3. Set up postgres you can either run ```$ su - postgres``` or ```$ sudo -u postgres psql```.
-4. Once you enter postgres command line create the database: ```# create role Athene with createdb login password 'athene';```.
+4. Once you enter postgres command line create the database: 
+```# create role athene with createdb login password 'athene';```
+
+   or you can also create by these commands:
+
+   ```# create user athene with password 'athene';```
+
+   ```# create database athene owner athene;```
+
+   ```# alter user athene superuser createrole createdb replication;```.
+
 5. Go back to your commando line and set up the database by running ```$ rake db:setup```.
 
 ### Instalation and execution
@@ -34,3 +44,14 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 5. Deploy the application server by running ```rails server``` on the projects root directory.
 6. The application will run by default on ```localhost:3000```.
 7. If you want to host the application on a different IP or port, just run ```rails server -b $IP -p $PORT```.
+
+### Testing Aplication
+#### BDD
+1. Go to the aplication root in your terminal(folder Athene)
+2. Run ```bundle update``` to add gem tests dependencies(if you have already installed bundle then you can jump this step).
+3. You will run the tests by just typing ```cucumber``` in your terminal.
+#### TDD
+1. Go to the aplication root in your terminal(folder Athene)
+2. Run ```bundle update``` to add gem tests dependencies(if you have already installed bundle then you can jump this step).
+3. You will run the tests by just typing ```rspec``` in your terminal.
+4. If you want to run a specific test, you'll need to specify the test file directory , for example ```rspec spec/controller/```<b>CONTROLLER_NAME</b>```_spec.rb``` where <b>CONTROLLER_NAME</b> is the name of the controller that you want to test, or you can also test an entire entity by typing ```rspec spec/```<b>ENTITY_NAME</b> where <b>ENITY_NAME</b> is the name of the entity that you want to test(ex.:controllers,helpers,models,views,etc).
