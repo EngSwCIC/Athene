@@ -1,5 +1,7 @@
 Given("eu esteja na pagina de login") do
   visit('/login')
+  @user = User.new(nick:'teste', senha:'teste123456', email:'teste@gmail.com')
+  @user.save!
 end
 
 When("eu preencher o formulario de login com:") do |table|
@@ -15,4 +17,5 @@ end
 
 Then("eu receberei uma mensagem da pagina de login {string}") do |msg|
   expect(page).to have_content msg
+  @user.destroy
 end
