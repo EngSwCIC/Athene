@@ -1,4 +1,5 @@
 # Athene
+<a href="https://zenhub.com"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
 
 Athene is a simple web application which you can upload and see videos online, all via (live) streaming.
 The purpose of this application is to provide a light streaming platform with the least bureaucracy.
@@ -49,7 +50,7 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 #### BDD
 1. Go to the aplication root in your terminal(folder Athene)
 2. Run ```bundle update``` to add gem tests dependencies(if you have already installed bundle then you can jump this step).
-3. You will run the tests by just typing ```cucumber``` in your terminal.
+3. You will run the tests by just typing and enter ```cucumber``` in your terminal.
 #### TDD
 1. Go to the aplication root in your terminal(folder Athene)
 2. Run ```bundle update``` to add gem tests dependencies(if you have already installed bundle then you can jump this step).
