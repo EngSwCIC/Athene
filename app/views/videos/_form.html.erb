@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :video_file %>
-    <%= form.text_field :video_file %>
+    <%= file_field(:attachment, :video_file, accept:'video/mp4,video/avi,video/wmv,video/mpg,video/mkv,video/mpeg') %>
   </div>
 
   <div class="field">
