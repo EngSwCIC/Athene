@@ -1,4 +1,4 @@
-<%= form_with(model: video, local: true) do |form| %>
+<%= form_with(model: video, local: true, multipart: true) do |form| %>
   <% if video.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
@@ -22,13 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :video_file %>
-    <%= file_field(:attachment, :video_file, accept:'video/mp4,video/avi,video/wmv,video/mpg,video/mkv,video/mpeg') %>
-  </div>
-
-  <div class="field">
-    <%= form.label :file_path %>
-    <%= form.text_field :file_path %>
+    <%= form.label :arq_video, "Video File" %>
+    <%= file_field_tag :arq_video %>
   </div>
 
   <div class="actions">

@@ -1,6 +1,5 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-
   # GET /videos
   # GET /videos.json
   def index
@@ -25,7 +24,8 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
-
+    
+    @video.file_path = uploaded params[:arq_video]
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
@@ -35,6 +35,14 @@ class VideosController < ApplicationController
         format.json { render json: @video.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def uploaded file_up
+    path = Rails.root.join('public', 'uploads/', file_up.original_filename)
+    File.open(path , 'wb') do |file|
+      file.write(file_up.read)
+    end
+    return path
   end
 
   # PATCH/PUT /videos/1
@@ -69,6 +77,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:title, :description, :video_file, :file_path)
+      params.require(:video).permit(:title, :description)
     end
 end
