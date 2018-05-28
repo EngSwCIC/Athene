@@ -28,7 +28,7 @@ class VideosController < ApplicationController
     @video.file_path = uploaded params[:arq_video]
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
+        format.html { redirect_to @video, notice: 'Upload feito com sucesso!' }
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }
@@ -45,6 +45,9 @@ class VideosController < ApplicationController
     return path
   end
 
+  def del_upfile path
+    File.delete path if File.exists?(path)
+  end
   # PATCH/PUT /videos/1
   # PATCH/PUT /videos/1.json
   def update
@@ -62,7 +65,9 @@ class VideosController < ApplicationController
   # DELETE /videos/1
   # DELETE /videos/1.json
   def destroy
+    del_upfile @video.file_path
     @video.destroy
+
     respond_to do |format|
       format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
       format.json { head :no_content }
