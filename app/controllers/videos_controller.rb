@@ -38,6 +38,7 @@ class VideosController < ApplicationController
   end
 
   def uploaded file_up
+    Dir.mkdir Rails.root+"public/uploads/" unless Dir.exists?(Rails.root+"public/uploads/")
     path = Rails.root.join('public', 'uploads/', file_up.original_filename)
     File.open(path , 'wb') do |file|
       file.write(file_up.read)
