@@ -1,0 +1,22 @@
+// Place all the styles related to the Videos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#progresso{
+	display: block;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border: 2px solid black;
+	width:100%;
+	background-color: #ddd;
+}
+
+#barra {
+	display: block;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-raidius: 5px;
+	width:1%;
+	height: 20px;
+	background-color: #33cc33;
+}
