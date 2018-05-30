@@ -1,4 +1,5 @@
-<%= form_with(model: video, local: true, multipart: true) do |form| %>
+<div id="showprogress"></div>
+<%= form_with(model: video, local: true, id: "form_up", multipart: true) do |form| %>
   <% if video.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
@@ -23,10 +24,14 @@
 
   <div class="field">
     <%= form.label :arq_video, "Video File" %>
-    <%= file_field_tag :arq_video, accept: 'video/*' %>
+    <%= file_field_tag :arq_video, accept: 'video/*',id: 'upload'%>
   </div>
 
   <div class="actions">
-    <%= form.submit "Upload" %>
+    <%= form.submit "Upload",id:'submit_up' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  Form_Start();
+</script>
