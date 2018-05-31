@@ -10,7 +10,7 @@ When("eu preencher o formulario:") do |table|
 end
 
 When("selecionando o arquivo {string}") do |teste_video|
-  @test_video = "#{teste_video}.mp4"
+  @test_video = "#{teste_video}"
   page.attach_file 'arq_video', Rails.root + "features/videos/#{@test_video}"
 end
 
@@ -20,6 +20,8 @@ end
 
 Then("eu receberei a mensagem {string}") do |mensagem|
 	expect(page).to have_content mensagem
-	path = Rails.root+"public/uploads/#{@test_video}"
-	File.delete path if File.exists?(path)
+  if !@test_video.nil?
+	 path = Rails.root+"public/uploads/#{@test_video}"
+	 File.delete path if File.exists?(path)
+  end
 end

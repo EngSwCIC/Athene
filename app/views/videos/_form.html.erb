@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, id: 'titulo'%>
   </div>
 
   <div class="field">
@@ -24,7 +24,7 @@
 
   <div class="field">
     <%= form.label :arq_video, "Video File" %>
-    <%= file_field_tag :arq_video, accept: 'video/*',id: 'upload'%>
+    <%= file_field_tag :arq_video, accept: 'video/*',id: 'upload' %>
   </div>
 
   <div class="actions">

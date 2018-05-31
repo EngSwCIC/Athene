@@ -24,8 +24,12 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
-    
-    @video.file_path = uploaded params[:arq_video]
+    if !params[:arq_video].nil?
+      @video.valid = params[:arq_video].original_filename
+      @video.file_path = uploaded params[:arq_video]
+    else
+      @video.valid = nil
+    end
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Upload feito com sucesso!' }
@@ -47,6 +51,9 @@ class VideosController < ApplicationController
   end
 
   def del_upfile path
+    if path.nil?
+      path = ' '
+    end
     File.delete path if File.exists?(path)
   end
   # PATCH/PUT /videos/1

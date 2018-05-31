@@ -4,24 +4,29 @@ if("#videos"){
     var show = document.getElementById("showprogress");
     var subm = document.getElementById("submit_up");
     var changer = document.getElementById('upload');
-    var file = " ";
+    var title = document.getElementById('titulo');
+    var file;
 
-    
     changer.onchange = function(){
       var filename = this.value;
       var lastIndex = filename.lastIndexOf("\\");
+      var extensions = /(\.mp4|\.mkv|\.mpeg|\.avi|\.wmv|\.mpg|\.webm)$/i;
       if (lastIndex >= 0) {
         filename = filename.substring(lastIndex + 1);
       }
-      file = filename;
+      if(extensions.exec(filename)){
+        file = filename;
+      }
     };
 
     
     subm.addEventListener("click", function(){
-      show.innerHTML = "<div id='progresso'> \
-                          <div id='barra'> </div>\
-                         ";
-      carregar(file);
+      if((file != null)&&(title.value != '')){
+        show.innerHTML = "<div id='progresso'> \
+                            <div id='barra'> </div>\
+                           ";
+        carregar(file);
+      }
     });
 
     function carregar(value){
