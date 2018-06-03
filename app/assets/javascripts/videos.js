@@ -10,7 +10,7 @@ if("#videos"){
     changer.onchange = function(){
       var filename = this.value;
       var lastIndex = filename.lastIndexOf("\\");
-      var extensions = /(\.mp4|\.mkv|\.mpeg|\.avi|\.wmv|\.mpg|\.webm|\.flv)$/i;
+      var extensions = /(\.mp4|\.mkv|\.mpeg|\.avi|\.rmvb|\.wmv|\.mpg|\.webm|\.flv)$/i;
       if (lastIndex >= 0) {
         filename = filename.substring(lastIndex + 1);
       }

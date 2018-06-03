@@ -6,7 +6,7 @@ class Video < ApplicationRecord
 
 	def video_valid?
 		if !valid_extension? valid
-			errors[:arq_video] << "Formato Inválido!"
+			errors[:arq_video] << "Formato Inválido! Formatos Válidos são: .mkv,.mpeg,.avi,.rmvb,.wmv,.mpg,.webm,.flv,.mp4"
 			value = false
 		else
 			value = true
@@ -19,6 +19,6 @@ class Video < ApplicationRecord
 			filename = " "
 		end
 		ext = File.extname(filename)
-		[".mp4",".mkv",".mpeg",".web",".avi",".webm",".rmvb",".wmv"].include? ext.downcase
+		[".mp4",".mkv",".mpeg",".mpg",".avi",".webm",".rmvb",".wmv",".flv"].include? ext.downcase
 	end
 end

@@ -35,7 +35,7 @@ Scenario: Envio de video com Falha de extensão no arquivo
 	|video[description]| testando video |
 	And selecionando o arquivo "teste_error.txt"
 	And clicando no botao "Upload"
-	Then eu receberei a mensagem "Formato Inválido!"
+	Then eu receberei a mensagem "Formato Inválido! Formatos Válidos são: .mkv,.mpeg,.avi,.rmvb,.wmv,.mpg,.webm,.flv,.mp4"
 
 Scenario: Envio de video com Sucesso
 	Given eu esteja na pagina de upload de videos e esteja logado
@@ -70,4 +70,4 @@ Scenario: Envio de video com Falha de extensão no arquivo
 	|video[description]| testando video |
 	And selecionando o arquivo "teste_error.txt"
 	And clicando no botao "Upload"
-	Then eu receberei a mensagem "Formato Inválido!"
+	Then eu receberei a mensagem "Formato Inválido! Formatos Válidos são: .mkv,.mpeg,.avi,.rmvb,.wmv,.mpg,.webm,.flv,.mp4"

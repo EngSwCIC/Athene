@@ -83,7 +83,7 @@ class VideosController < ApplicationController
       File.open(file_save , 'wb') do |file|
         file.write(file_up.read)
       end
-    elsif ['.mkv','.mpeg','.avi','.wmv','.mpg','.webm','.flv'].include?(ext)
+    elsif ['.mkv','.mpeg','.avi','.wmv','.mpg','.rmvb','.flv'].include?(ext.downcase)
       file_save = convert file_up, path_save
     end
     return file_save
