@@ -1,7 +1,7 @@
 <h1>Login</h1> <%# pagina de login%>
 
 <% if @message !=nil%> <%# verifica a mensagem enviada da controladora%>
-<% if sucess_message @message %>
+<% if sucess_message @message, @check %>
 <%= content_tag(:p , @message, :id => 'good_token') %></br>
 <% else %>
 <%= content_tag(:p , @message, :id => 'bad_token') %></br>

@@ -24,15 +24,27 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
+    if !cookies[:login].nil? 
+      user = User.find_by nick: cookies[:login];
+      @video.user = user.id;
+    end
     if !params[:arq_video].nil?
       @video.valid = params[:arq_video].original_filename
-      @video.file_path = uploaded params[:arq_video]
+      if !@video.user.nil?
+        @video.file_path = uploaded params[:arq_video],@video.user
+      else
+        @video.file_path = uploaded params[:arq_video]
+      end
     else
       @video.valid = nil
     end
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Upload feito com sucesso!' }
+        if !cookies[:login].nil?
+          format.html { redirect_to "/login?notice=Upload+feito+com+sucesso!"  }
+        else
+          format.html { redirect_to controller:'stream',action:'show',name_video:@video.title , notice: 'Upload feito com sucesso!' }
+        end
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }
@@ -41,9 +53,9 @@ class VideosController < ApplicationController
     end
   end
 
-  def uploaded file_up
-    Dir.mkdir Rails.root+"public/uploads/" unless Dir.exists?(Rails.root+"public/uploads/")
-    path = Rails.root.join('public', 'uploads/', file_up.original_filename)
+  def uploaded file_up, user='default'
+    Dir.mkdir Rails.root+"public/uploads/#{user}" unless Dir.exists?(Rails.root+"public/uploads/#{user}")
+    path = Rails.root.join("public", "uploads/#{user}", file_up.original_filename)
     File.open(path , 'wb') do |file|
       file.write(file_up.read)
     end

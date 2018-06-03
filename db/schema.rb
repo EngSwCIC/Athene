@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 2018_05_23_201754) do
   end
 
   create_table "videos", force: :cascade do |t|
+    t.integer "user"
     t.string "title"
     t.text "description"
-    t.string "video_file"
     t.string "file_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

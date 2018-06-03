@@ -1,4 +1,12 @@
-Given("eu esteja na pagina de upload de videos") do
+Given("eu esteja na pagina de upload de videos e esteja logado") do
+  @user = User.new(nick: "teste", senha:"abc12345", email:"raulgil@gmail.com")
+  @user.save!
+  cookies[:login] = "teste"
+  visit('/upload')
+end
+
+Given("eu esteja na pagina de upload de videos e não esteja logado") do
+  page.driver.browser.clear_cookies
   visit('/upload')
 end
 
@@ -21,7 +29,9 @@ end
 Then("eu receberei a mensagem {string}") do |mensagem|
 	expect(page).to have_content mensagem
   if !@test_video.nil?
-	 path = Rails.root+"public/uploads/#{@test_video}"
+	 path = Rails.root+"public/uploads/defult/#{@test_video}"
 	 File.delete path if File.exists?(path)
   end
+  @user.destroy unless @user.nil?
+  page.driver.browser.clear_cookies
 end
