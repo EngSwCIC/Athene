@@ -29,7 +29,7 @@ end
 Then("eu receberei a mensagem {string}") do |mensagem|
 	expect(page).to have_content mensagem
   if !@test_video.nil?
-	 path = Rails.root+"public/uploads/defult/#{@test_video}"
+	 path = Rails.root+"public/uploads/default/#{@test_video}"
 	 File.delete path if File.exists?(path)
   end
   @user.destroy unless @user.nil?
