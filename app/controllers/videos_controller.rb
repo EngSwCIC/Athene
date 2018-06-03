@@ -25,12 +25,14 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     if !cookies[:login].nil? 
-      user = User.find_by nick: cookies[:login];
-      @video.user = user.id;
+      user = User.find_by nick: cookies[:login]
+      @video.user = user.id
+    else
+      @video.user = -1
     end
     if !params[:arq_video].nil?
       @video.valid = params[:arq_video].original_filename
-      if !@video.user.nil?
+      if @video.user != -1
         @video.file_path = uploaded params[:arq_video],@video.user
       else
         @video.file_path = uploaded params[:arq_video]

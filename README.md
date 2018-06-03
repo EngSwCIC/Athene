@@ -35,6 +35,16 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 
 5. Go back to your commando line and set up the database by running ```$ rake db:setup```.
 
+#### Database clean Installation
+
+1. after you did pass 1 and 2, make sure you are in Athene root and enter these commands in command line
+
+```# rake db:drop:all ```
+```# rake db:create:all ```
+
+2. Continue in Instalation and execution
+
+
 ### Instalation and execution
 
 1. Clone the repository: ```git clone https://github.com/EngSwCIC/Athene.git```.

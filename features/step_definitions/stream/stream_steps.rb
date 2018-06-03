@@ -4,6 +4,7 @@ Given("eu esteja na pagina de um vídeo {string}") do |teste|
    @video.arq_video = Rails.root + "features/videos/teste.mp4"
    @video.valid = "teste.mp4"
    @video.file_path = Rails.root + "features/videos/teste.mp4"
+   @video.user = -1
    @video.save
   end
   visit("/stream/show?name_video=#{teste}")  
