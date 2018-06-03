@@ -1,3 +1,5 @@
+require 'streamio-ffmpeg'
+
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   # GET /videos
@@ -55,13 +57,36 @@ class VideosController < ApplicationController
     end
   end
 
-  def uploaded file_up, user='default'
-    Dir.mkdir Rails.root+"public/uploads/#{user}" unless Dir.exists?(Rails.root+"public/uploads/#{user}")
-    path = Rails.root.join("public", "uploads/#{user}", file_up.original_filename)
-    File.open(path , 'wb') do |file|
-      file.write(file_up.read)
+  def convert file,to_path,extention=".mp4",options=%w(-strict -2)
+    tmp = "#{Rails.root}/public/uploads/temp"
+    Dir.mkdir tmp unless Dir.exists? tmp
+    filetmp = "#{tmp}/#{file.original_filename}"
+    File.open(filetmp , 'wb') do |filew|
+      filew.write(file.read)
     end
-    return path
+    movie = FFMPEG::Movie.new(filetmp)
+    ext = File.extname(file.original_filename)
+    base = File.basename(file.original_filename, ext)
+    file_save = "#{to_path}/#{base}#{extention}"
+    movie.transcode(file_save, options)
+    FileUtils.rm_rf tmp
+    return file_save
+  end
+
+  def uploaded file_up, user='default'
+    path_save = "#{Rails.root}/public/uploads/#{user}"
+    Dir.mkdir path_save unless Dir.exists? path_save
+    ext = File.extname(file_up.original_filename)
+
+    if ext == ".mp4" || ext == ".webm"
+      file_save = "#{path_save}/#{file_up.original_filename}"
+      File.open(file_save , 'wb') do |file|
+        file.write(file_up.read)
+      end
+    elsif ['.mkv','.mpeg','.avi','.wmv','.mpg','.webm','.flv'].include?(ext)
+      file_save = convert file_up, path_save
+    end
+    return file_save
   end
 
   def del_upfile path

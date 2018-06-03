@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'execjs', '>= 2.7.0'
 gem 'therubyracer', '>= 0.12.3'
 gem 'valid_email2', '>= 2.2.3'
+gem 'streamio-ffmpeg', '>= 3.0.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
