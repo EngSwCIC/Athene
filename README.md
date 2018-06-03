@@ -40,6 +40,7 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 1. after you did pass 1 and 2, make sure you are in Athene root and enter these commands in command line
 
 ```# rake db:drop:all ```
+
 ```# rake db:create:all ```
 
 2. Continue in Instalation and execution
