@@ -7,7 +7,7 @@ Given("eu esteja na pagina de um vídeo {string}") do |teste|
    @video.user = -1
    @video.save
   end
-  visit("/stream/show?name_video=#{teste}")  
+  visit("/videos?name_video=#{teste}")  
 end
 
 When("eu encontrar o título {string} do video") do |video|

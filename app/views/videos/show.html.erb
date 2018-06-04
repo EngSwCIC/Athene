@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<!--p>
   <strong>Title:</strong>
   <%= @video.title %>
 </p>
@@ -16,4 +16,14 @@
 </p>
 
 <%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+<%= link_to 'Back', videos_path %> -->
+
+<% if !@video.nil? %>
+<h2 id='recomendados'>Videos recomendados</h2>
+<%= video_tag @video.file_path.gsub("#{Rails.root}/public",''), width:640, height:480,controls: true %>
+<h2><%= @video.title %></h2>
+<p><%= @video.description %></p>
+<h3>Comentários</h3>
+<% else %>
+<h2>Video indefinido</h2>
+<% end %>

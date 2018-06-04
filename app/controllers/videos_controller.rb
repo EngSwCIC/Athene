@@ -5,7 +5,12 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    if !params[:name_video].nil?
+      @video = Video.find_by title: params[:name_video]
+      redirect_to @video
+    else
+      @videos = Video.all
+    end
   end
 
   # GET /videos/1
@@ -44,11 +49,7 @@ class VideosController < ApplicationController
     end
     respond_to do |format|
       if @video.save
-        if !cookies[:login].nil?
-          format.html { redirect_to "/login?notice=Upload+feito+com+sucesso!"  }
-        else
-          format.html { redirect_to controller:'stream',action:'show',name_video:@video.title , notice: 'Upload feito com sucesso!' }
-        end
+        format.html { redirect_to @video , notice: 'Upload feito com sucesso!' }
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }

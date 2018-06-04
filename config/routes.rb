@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :videos
   resources :users
+  resources :comments
   get 'registrar' => 'users#new'
   get 'admin' => 'users#index'
   get 'login' => 'autenticacao#login'
