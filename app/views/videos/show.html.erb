@@ -1,23 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-<!--p>
-  <strong>Title:</strong>
-  <%= @video.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @video.description %>
-</p>
-
-<p>
-  <strong>File path:</strong>
-  <%= @video.file_path %>
-</p>
-
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %> -->
-
 <% if !@video.nil? %>
 <h2 id='recomendados'>Videos recomendados</h2>
 <%= video_tag @video.file_path.gsub("#{Rails.root}/public",''), width:640, height:480,controls: true %>
