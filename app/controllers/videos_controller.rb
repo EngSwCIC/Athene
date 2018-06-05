@@ -16,6 +16,9 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @video_id = Video.find(params[:id])
+    @new_comment = Comment.build_from(@video, @video_id, "")
+    cookies[:return_to] = request.env['PATH_INFO']
   end
 
   # GET /videos/new

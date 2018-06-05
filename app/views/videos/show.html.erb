@@ -5,6 +5,7 @@
 <h2><%= @video.title %></h2>
 <p><%= @video.description %></p>
 <h3>Comentários</h3>
+<%= render partial: "comments/template", locals: {commentable: @video, new_comment: @comment} %>
 <% else %>
 <h2>Video indefinido</h2>
 <% end %>
