@@ -9,17 +9,17 @@ class CommentsController < ApplicationController
     @comment.user = User.find_by nick: cookies[:login]
 
     respond_to do |format|
-      if @comment.save!
+      if @comment.save
         make_child_comment
         if !cookies[:return_to].nil?
         	format.html  { redirect_to cookies[:return_to],:notice => "Comentário postado com Sucesso!" }
         else
         	format.html  { redirect_to '/videos' }
         end
-        cookies.delete [:return_to]
       else
-        format.html  { render :action => "new" }
+        format.html  { redirect_to cookies[:return_to],:notice => "É preciso estar logado para comentar" }
       end
+      cookies.delete [:return_to]
     end
   end
 
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   	@comment.destroy
 
   	respond_to do |format|
-      format.html { redirect_to cookies[:return_to], notice: 'Coment was successfully destroyed.' }
+      format.html { redirect_to cookies[:return_to], notice: 'Comentário deletado com sucesso!' }
       format.json { head :no_content }
       cookies.delete [:return_to]
     end

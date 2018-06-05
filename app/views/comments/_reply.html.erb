@@ -1,10 +1,10 @@
-<% comments.each do |comment| %>  
+<% comments.each_with_index do |comment,i| %>  
   <div class="comments-show">
     <div class="comment">
       <p><%= comment.user.nick %></p>
       <p><%= comment.body %><br></p>
-      <div class="comment-nav"><a href="#" class="comment-reply">reply</a></div>
-      <div class="comment-nav"><%= link_to "delete", comment ,method: :delete%></div>
+      <div class="comment-nav"><a class="comment-reply" onclick="responder(<%= i %>)">responder</a></div>
+      <div class="comment-nav"><%= link_to "deletar", comment ,method: :delete%></div>
       <div class="reply-form">
         <%= form_for @new_comment do |f| %>
           <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
@@ -14,11 +14,20 @@
             <%= f.text_area :body, class: 'form-control' %>
           </div>
           <div class="field form-group">
-            <%= submit_tag "Post Reply", class: 'btn btn-primary' %>
+            <%= submit_tag "Postar Resposta", class: 'btn btn-primary' %>
           </div>
         <% end %>
       </div>
     </div>
     <%= render partial: "comments/reply", locals: {comments: comment.children} %>
   </div>
-<% end %>  
+<% end %>
+
+<script type="text/javascript">
+  function responder(id){
+   resp = document.getElementsByClassName('reply-form')[id];
+   if(resp != null){
+     resp.style.display = "block";
+   }
+  }
+</script>
