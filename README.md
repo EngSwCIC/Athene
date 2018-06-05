@@ -36,16 +36,6 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 
 5. Go back to your commando line and set up the database by running ```$ rake db:setup```.
 
-#### Database clean Installation
-
-1. after you did pass 1 and 2, make sure you are in Athene root and enter these commands in command line
-
-	```# rake db:drop:all ```
-
-	```# rake db:create:all ```
-
-2. Continue in Instalation and execution
-
 
 ### Instalation and execution
 
@@ -57,6 +47,18 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 5. Deploy the application server by running ```rails server``` on the projects root directory.
 6. The application will run by default on ```localhost:3000```.
 7. If you want to host the application on a different IP or port, just run ```rails server -b $IP -p $PORT```.
+
+
+#### Database clean Installation
+
+1. after you did steps 1 ,2 and 3 of Instalation and execution, make sure you are in Athene root and enter these commands in command line
+
+	```# rake db:drop:all ```
+
+	```# rake db:create:all ```
+
+2. Continue in Instalation and execution
+
 
 ### Testing Aplication
 #### BDD
