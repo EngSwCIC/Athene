@@ -15,6 +15,7 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 - [Github](https://git-scm.com/)
 - [Ruby](https://www.ruby-lang.org/en/documentation/installation/) version: ```2.4.1```
 - [Ruby gems](https://rubygems.org/pages/download) version: ```2.6```
+- [FFmpeg](http://trac.ffmpeg.org/wiki/CompilationGuide) version: ```2.8```
 - [Rails](http://installrails.com/) version: ```5.2.0```
 
 ### Database creation
