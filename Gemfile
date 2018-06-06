@@ -18,6 +18,7 @@ gem 'therubyracer', '>= 0.12.3'
 gem 'valid_email2', '>= 2.2.3'
 gem 'streamio-ffmpeg', '>= 3.0.2'
 gem 'acts_as_commentable_with_threading', '>= 2.0.1'
+gem 'jquery-rails','>=4.3.3'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 

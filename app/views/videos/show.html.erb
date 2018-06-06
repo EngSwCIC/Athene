@@ -1,10 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% if !notice.nil?%>
+<% if failed_message notice %>
+<%= content_tag(:p , notice, :id => 'bad_token') %></br>
+<% else %>
+<%= content_tag(:p , notice, :id => 'good_token') %></br>
+<% end %>
+<% end %>
+
 <% if !@video.nil? %>
 <h2 id='recomendados'>Videos recomendados</h2>
 <%= video_tag @video.file_path.gsub("#{Rails.root}/public",''), width:640, height:480,controls: true %>
 <h2><%= @video.title %></h2>
 <p><%= @video.description %></p>
 <h3>Comentários</h3>
+<%= render partial: "comments/template", locals: {commentable: @video, new_comment: @comment} %>
 <% else %>
 <h2>Video indefinido</h2>
 <% end %>

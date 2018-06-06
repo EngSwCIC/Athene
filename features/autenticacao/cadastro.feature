@@ -20,14 +20,14 @@ Scenario: Cadastro não efetuado possui campos vazios
 	And clicando em "Registrar"
 	Then eu receberei uma mensagem da pagina de cadastro "aba não preenchida"
 
-Scenario: Cadastro não efetuado senha inválida
-	Given eu esteja na pagina de cadastro
+Scenario: Cadastro não efetuado usuário ja cadastrado
+	Given eu esteja na pagina de cadastro e esteja cadastrado
 	When eu preencho o formulario de cadastro com:
 	|user[nick] | teste           |
 	|user[senha]| teste           |
 	|user[email]| teste@gmail.com |
 	And clicando em "Registrar"
-	Then eu receberei uma mensagem da pagina de cadastro "Senha precisa ter no mínimo 8 caracteres"
+	Then eu receberei uma mensagem da pagina de cadastro "Nick Já cadastrado, utilize outro nick para cadastro"
 
 
 Scenario: Cadastro não efetuado email inválido
