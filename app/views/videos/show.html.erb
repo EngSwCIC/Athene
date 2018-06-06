@@ -1,9 +1,9 @@
 <% if !notice.nil?%>
-<% if failed_message notice %>
-<%= content_tag(:p , notice, :id => 'bad_token') %></br>
-<% else %>
-<%= content_tag(:p , notice, :id => 'good_token') %></br>
-<% end %>
+ <% if failed_message notice %>
+  <%= content_tag(:p , notice, :id => 'bad_token') %></br>
+ <% else %>
+ <%= content_tag(:p , notice, :id => 'good_token') %></br>
+ <% end %>
 <% end %>
 
 <h2 id='recomendados'>Videos recomendados</h2>

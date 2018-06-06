@@ -9,7 +9,7 @@
         <div class="comment-nav"><a class="comment-reply" onclick="responder(<%= i %>,true)">responder</a></div>
       <% end %>
       <% if comment_user? comment.user.id%>
-        <div class="comment-nav"><%= link_to "deletar", comment ,method: :delete%></div>
+        <div class="comment-nav"><%= link_to "deletar", comment , method: :delete ,id:'deletando'%></div>
       <% end %>
       <div class="reply-form">
         <%= form_for @new_comment do |f| %>
@@ -17,7 +17,7 @@
           <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
           <%= f.hidden_field :comment_id, value: comment.id %>
           <div class="field form-group">
-            <%= f.text_area :body, class: 'form-control' %>
+            <%= f.text_area :body, class: 'form-control',id: 'answer' %>
           </div>
           <div class="field form-group">
             <%= submit_tag "Postar Resposta", class: 'btn btn-primary' %>

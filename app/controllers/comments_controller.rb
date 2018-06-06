@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
     commentable = commentable_type.constantize.find(commentable_id)
     @comment = Comment.build_from(commentable, commentable_id, body)
     @comment.user = User.find_by nick: cookies[:login]
-
     respond_to do |format|
       if @comment.save
         make_child_comment
