@@ -7,10 +7,17 @@ class VideosController < ApplicationController
   def index
     if !params[:name_video].nil?
       @video = Video.find_by title: params[:name_video]
-      redirect_to @video
+      if !@video.nil?
+        redirect_to @video
+      else
+        redirect_to action: 'show_error'
+      end
     else
       @videos = Video.all
     end
+  end
+
+  def show_error
   end
 
   # GET /videos/1
