@@ -28,7 +28,7 @@ Scenario: Respondendo Comentário deslogado
   Given eu esteja na pagina de um vídeo "teste" para comentar
   When eu encontrar na página "Comentários"
   And clicar no link "responder"
-  Then eu receberei a mensagem "É necessario estar logado para que possa responder"
+  Then eu receberei esta mensagem "É necessario estar logado para que possa responder, faça o seu login e responda este comentário" na pagina do video
 
 Scenario: Deletando Comentário logado
   Given eu esteja na pagina de um vídeo "teste" e esteja logado

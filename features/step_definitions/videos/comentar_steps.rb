@@ -56,3 +56,7 @@ end
 Then("eu não encontrarei o botão {string}") do |link|
   expect(page).not_to have_content link
 end
+
+Then("eu receberei esta mensagem {string} na pagina do video") do |link|
+  expect(page).to have_css('.reply-form',:text => link)
+end
