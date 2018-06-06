@@ -1,0 +1,22 @@
+<h1>Athene, a poderosa plataforma livre de vídeos</h1>
+<h6> modestidade é tudo</h6>
+<br>
+
+<h3>
+	<% if cookies[:login].nil?%> <%# verifica se o usuario esta logado%>
+	<a href='/registrar'> Registrar </a> 
+	<a href='/login'> Logar </a>
+	<% else%> <%# caso esteja cria um link para que o usuario possa deslogar%>
+	<%= link_to "Logout", :controller => 'autenticacao', :action => 'logout'%>
+	<% end%>
+	
+</h3>
+<br><br>
+
+
+<h2>Últimos vídeos</h2>
+<% @lista.each do |video| %>
+	<%v = '/videos/'+video.id.to_s%>
+	<h3><a href=<%=v%>> <%= video.title%></a>
+	<br></h3>
+<%end%>
