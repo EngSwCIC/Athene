@@ -3,8 +3,14 @@
     <div class="comment">
       <p><%= comment.user.nick %></p>
       <p><%= comment.body %><br></p>
-      <div class="comment-nav"><a class="comment-reply" onclick="responder(<%= i %>)">responder</a></div>
-      <div class="comment-nav"><%= link_to "deletar", comment ,method: :delete%></div>
+      <% if !cookies[:login].nil? %>
+        <div class="comment-nav"><a class="comment-reply" onclick="responder(<%= i %>)">responder</a></div>
+      <% else %>
+        <div class="comment-nav"><a class="comment-reply" onclick="responder(<%= i %>,true)">responder</a></div>
+      <% end %>
+      <% if comment_user? comment.user.id%>
+        <div class="comment-nav"><%= link_to "deletar", comment ,method: :delete%></div>
+      <% end %>
       <div class="reply-form">
         <%= form_for @new_comment do |f| %>
           <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
@@ -24,10 +30,15 @@
 <% end %>
 
 <script type="text/javascript">
-  function responder(id){
+  function responder(id,bad_token=false){
    resp = document.getElementsByClassName('reply-form')[id];
    if(resp != null){
-     resp.style.display = "block";
+     if(bad_token == false){
+       resp.style.display = "block";
+     }else{
+       resp.innerHTML = "<p id='bad_token'>É necessario estar logado para que possa responder, faça o seu <a href='/login'>login</a> e responda este comentário</p>";
+       resp.style.display = "block";
+     }
    }
   }
 </script>
