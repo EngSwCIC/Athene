@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Busca por "<%= params[:titulo] %>"</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Canal</th>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.title %></td>
+        <td><%= video.description %></td>
+        <td><%v = '/videos/'+video.id.to_s%><a href=<%=v%>> <%= video.title%> </a> </td>
+
+<%
+=begin
+%>
+          <!-- TODO: Opções de moderador -->
+          <!-- <td><%= link_to 'Edit', edit_user_path(user) %></td> -->
+          <!-- <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+<%
+=end
+%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
