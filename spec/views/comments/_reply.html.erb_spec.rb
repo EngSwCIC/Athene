@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "comments/_reply", type: :view do
-  def setup
+  before(:each) do
     @video = Video.new(title: 'teste', description: 'teste')
     @video.arq_video = Rails.root + "features/videos/teste.mp4"
     @video.valid = "teste.mp4"
@@ -15,18 +15,16 @@ RSpec.describe "comments/_reply", type: :view do
     @comments << @new_comment
   end
 
-  def clear
+  after(:each) do
     @video.destroy unless @video.nil?
     @user.destroy unless @user.nil?
     @comments.clear
   end
 
   it "renderiza os comentarios e botões de reply da pagina" do
-  	setup
     render :template => "comments/_reply.html.erb", locals: { comments: @comments }
     expect(rendered).to have_css 'div', :class => 'comment'
     expect(rendered).to have_css 'div', :class => 'comment-nav'
     expect(rendered).to have_css 'div', :class => 'reply-form'
-    clear
   end
 end

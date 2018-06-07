@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "comments/_template", type: :view do
-  def setup
+  before(:each) do
     @video = Video.new(title: 'teste', description: 'teste')
     @video.arq_video = Rails.root + "features/videos/teste.mp4"
     @video.valid = "teste.mp4"
@@ -14,7 +14,7 @@ RSpec.describe "comments/_template", type: :view do
     @comment = Comment.build_from(@video, @user.id, "commit")
   end
 
-  def clear
+  after(:each) do
     @video.destroy unless @video.nil?
     @user.destroy unless @user.nil?
     @new_comment.destroy unless @new_comment.nil?
@@ -22,10 +22,8 @@ RSpec.describe "comments/_template", type: :view do
   end
 
   it "renderiza o template de comentarios na pagina" do
-    setup
     render :template => "comments/_template.html.erb", locals: {commentable: @video, new_comment: @comment}
     expect(rendered).to have_css 'div', :class => "comments-header"
     expect(rendered).to have_css 'div', :class => "comments-container"
-    clear
   end
 end

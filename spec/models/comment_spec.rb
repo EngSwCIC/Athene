@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  def setup
+  before(:each) do
     @video = Video.new(title: 'teste', description: 'teste')
     @video.arq_video = Rails.root + "features/videos/teste.mp4"
     @video.valid = "teste.mp4"
@@ -12,7 +12,7 @@ RSpec.describe Comment, type: :model do
     @user.save!
   end
 
-  def clear
+  after(:each) do
     @video.destroy unless @video.nil?
     @user.destroy unless @user.nil?
   end
@@ -26,14 +26,10 @@ RSpec.describe Comment, type: :model do
   }
 
   it "valido com os atributos válidos" do
-    setup
     expect(Comment.new(valid_attributes)).to be_valid
-    clear
   end
 
   it "invalido com os atributos inválidos" do
-    setup
     expect(Comment.new(invalid_attributes)).to_not be_valid
-    clear
   end
 end

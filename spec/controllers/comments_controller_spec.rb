@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  def setup
+  before(:each) do
     @video = Video.new(title: 'teste', description: 'teste')
     @video.arq_video = Rails.root + "features/videos/teste.mp4"
     @video.valid = "teste.mp4"
@@ -18,7 +18,7 @@ RSpec.describe CommentsController, type: :controller do
     cookies.delete :login
   end
 
-  def clear
+  after(:each) do
     @video.destroy unless @video.nil?
     @user.destroy unless @user.nil?
   end
@@ -36,42 +36,34 @@ RSpec.describe CommentsController, type: :controller do
   describe "POST #create" do
       context "parametros validos" do
         it "criar novo comentario" do
-          setup
           expect {
             post :create, params: {comment: valid_attributes}, session: valid_session
           }.to change(Comment, :count).by(1)
           unsetup
-          clear
         end
       end
 
       context "parametros invalidos" do
         it "retorna um feedback ao retornar a pagina do video" do
-          setup
           unsetup
           post :create, params: {comment: invalid_attributes}, session: valid_session
           expect(response).to_not be_success
-          clear
         end
       end
   end
 
   describe "DELETE #destroy" do
      it "destroi o comentario" do
-      setup
       coment = Comment.create! valid_attributes
       expect {
         delete :destroy, params: {id: coment.to_param}, session: valid_session
       }.to change(Comment, :count).by(-1)
-      clear
     end
 
     it "redireciona o usuario na pagina do video" do
-      setup
       coment = Comment.create! valid_attributes
       delete :destroy, params: {id: coment.to_param}, session: valid_session
       expect(response).to redirect_to(cookies[:return_to])
-      clear
     end
   end
 
