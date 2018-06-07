@@ -110,7 +110,7 @@ RSpec.describe UsersController, type: :controller do
       it "redirects to the user" do
         user = User.create! valid_attributes
         put :update, params: {id: user.to_param, user: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(user)
+        expect(response).to be_success
       end
     end
 
