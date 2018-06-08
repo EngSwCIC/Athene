@@ -5,8 +5,11 @@ Given("eu esteja na pagina de um vídeo {string} e esteja logado") do |teste|
   @video.file_path = Rails.root + "features/videos/teste.mp4"
   @video.user = -1
   @video.save!
-  @user = User.new(nick: "teste", senha:"abc12345", email:"raulgil@gmail.com")
-  @user.save!
+  @user = User.find_by nick: 'teste'
+  if @user.nil?
+    @user = User.new(nick: "teste", senha:"abc12345", email:"raulgil@gmail.com")
+    @user.save!
+  end
   page.driver.browser.set_cookie 'login=teste'
   @comentario = Comment.build_from(@video, @user.id, "alguma coisa")
   @comentario.user = @user
@@ -21,6 +24,10 @@ Given("eu esteja na pagina de um vídeo {string} para comentar") do |teste|
   @video.file_path = Rails.root + "features/videos/teste.mp4"
   @video.user = -1
   @video.save!
+  @user = User.find_by nick: 'teste'
+  if !@user.nil?
+    @user.destroy
+  end
   @user = User.new(nick: "teste", senha:"abc12345", email:"raulgil@gmail.com")
   @user.save!
   @comentario = Comment.build_from(@video, @user.id, "alguma coisa")

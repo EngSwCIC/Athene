@@ -1,4 +1,8 @@
 Given("eu esteja na pagina de upload de videos e esteja logado") do
+  @user = User.find_by nick: 'teste'
+  if !@user.nil?
+    @user.destroy
+  end
   @user = User.new(nick: "teste", senha:"abc12345", email:"raulgil@gmail.com")
   @user.save!
   cookies[:login] = "teste"

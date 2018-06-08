@@ -1,11 +1,19 @@
 Given("eu esteja na pagina de cadastro") do
   visit('/registrar')
+  @user = User.find_by nick: 'teste'
+  if !@user.nil?
+    @user.destroy
+  end
 end
 
 Given("eu esteja na pagina de cadastro e esteja cadastrado") do
   visit('/registrar')
+  @user = User.find_by nick: 'teste'
+  if !@user.nil?
+    @user.destroy
+  end
   @user = User.new(nick: 'teste',senha: 'teste',email: 'teste@gmail.com')
-  @user.save
+  @user.save!
 end
 
 When("eu preencho o formulario de cadastro com:") do |table|
