@@ -3,11 +3,11 @@ module VideosHelper
     return message == "É preciso estar logado para comentar"
   end
 
-  def comment_user? id
-    if cookies[:login].nil?
+  def comment_user? id,logon=cookies[:login]
+    if logon.nil?
       return false
     end
-    user = User.find_by nick: cookies[:login]
+    user = User.find_by nick: logon
     if user.nil? 
       return false
     end
