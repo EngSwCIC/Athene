@@ -1,15 +1,42 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the VideosHelper. For example:
-#
-# describe VideosHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe VideosHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#failed_message' do
+    it "retorna um valor verdade caso o usuario comente deslogado" do
+	   expect(helper.failed_message "É preciso estar logado para comentar").to eq true
+	end
+
+    it "retorna um valor falso caso usuario comente logado" do
+      expect(helper.failed_message "sadsd").to eq false
+	end
+  end
+
+  after(:context) do
+    @user.destroy unless @user.nil?
+  end
+
+  describe '#comment_user?' do   
+    it "retorna um valor falso caso o id nao bata com os parametros recebidos" do
+	   expect(helper.comment_user? 0).to eq false
+	end
+
+	before(:context) do
+	  @logon = "teste"
+  	end
+
+    it "retorna um valor falso caso o id do usuario nao seja encontrado" do
+      expect(helper.comment_user? 0, @logon).to eq false
+	end
+
+	before(:context) do
+      @user = User.find_by nick: @logon
+      if @user.nil?
+        @user = User.new(nick: @logon,senha: @logon, email: 'teste@gmail.com')
+	  end
+	end
+
+    it "retorna um valor verdadeiro caso o id do usuario seja encontrado" do
+      expect(helper.comment_user? @user.id, @logon).to eq true
+	end
+  end
 end

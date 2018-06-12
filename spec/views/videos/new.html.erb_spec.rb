@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe "videos/new", type: :view do
   before(:each) do
     assign(:video, Video.new(
-      :title => "MyString",
-      :description => "MyText",
-      :video_file => "MyString",
-      :file_path => "MyString"
+      :title => "teste",
+      :description => "teste",
+      :file_path => "teste"
     ))
   end
+
 
   it "renders new video form" do
     render
@@ -19,9 +19,9 @@ RSpec.describe "videos/new", type: :view do
 
       assert_select "textarea[name=?]", "video[description]"
 
-      assert_select "input[name=?]", "video[video_file]"
+      assert_select "input[id=?]", "upload"
 
-      assert_select "input[name=?]", "video[file_path]"
+      assert_select "input[id=?]", "submit_up"
     end
   end
 end
