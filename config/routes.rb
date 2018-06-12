@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'registrar' => 'users#new'
   get 'admin' => 'users#index'
   get 'login' => 'autenticacao#login'
+  post 'login(.:format)' => 'autenticacao#login'
   get 'upload' => 'videos#new'
   get 'error' => 'videos#show_error'
 
