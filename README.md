@@ -72,3 +72,4 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 2. Run ```bundle update``` to add gem tests dependencies(if you have already installed bundle then you can jump this step).
 3. You will run the tests by just typing ```rspec``` in your terminal.
 4. If you want to run a specific test, you'll need to specify the test file directory , for example ```rspec spec/controller/```<b>CONTROLLER_NAME</b>```_spec.rb``` where <b>CONTROLLER_NAME</b> is the name of the controller that you want to test, or you can also test an entire entity by typing ```rspec spec/```<b>ENTITY_NAME</b> where <b>ENITY_NAME</b> is the name of the entity that you want to test(ex.:controllers,helpers,models,views,etc).
+
