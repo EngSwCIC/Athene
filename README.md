@@ -66,7 +66,7 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 1. Go to the aplication root in your terminal(folder Athene)
 2. Run ```bundle update``` to add gem tests dependencies(if you have already installed bundle then you can jump this step).
 3. You will run the tests by just typing and enter ```cucumber``` in your terminal.
-4. If you want to test only one feature than type enter ```cucumber --tags @<b>FEATURE_NAME</b>``` where <b>FEATURE_NAME</b> is the feature name that you want to test.  
+4. If you want to test only one feature than type enter ```cucumber --tags @```<b>FEATURE_NAME</b> where <b>FEATURE_NAME</b> is the feature name that you want to test.  
 #### TDD
 1. Go to the aplication root in your terminal(folder Athene)
 2. Run ```bundle update``` to add gem tests dependencies(if you have already installed bundle then you can jump this step).
