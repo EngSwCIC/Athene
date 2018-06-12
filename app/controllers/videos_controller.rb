@@ -1,14 +1,31 @@
+require 'streamio-ffmpeg'
+
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    if !params[:name_video].nil?
+      @video = Video.find_by title: params[:name_video]
+      if !@video.nil?
+        redirect_to @video
+      else
+        redirect_to action: 'show_error'
+      end
+    else
+      @videos = Video.all
+    end
+  end
+
+  def show_error
   end
 
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @video_id = Video.find(params[:id])
+    @new_comment = Comment.build_from(@video, @video_id, "")
+    cookies[:return_to] = request.env['PATH_INFO']
   end
 
   # GET /videos/new
@@ -24,15 +41,25 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
+    if !cookies[:login].nil? 
+      user = User.find_by nick: cookies[:login]
+      @video.user = user.id
+    else
+      @video.user = -1
+    end
     if !params[:arq_video].nil?
       @video.valid = params[:arq_video].original_filename
-      @video.file_path = uploaded params[:arq_video]
+      if @video.user != -1
+        @video.file_path = uploaded params[:arq_video],@video.user
+      else
+        @video.file_path = uploaded params[:arq_video]
+      end
     else
       @video.valid = nil
     end
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Upload feito com sucesso!' }
+        format.html { redirect_to @video , notice: 'Upload feito com sucesso!' }
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }
@@ -41,13 +68,36 @@ class VideosController < ApplicationController
     end
   end
 
-  def uploaded file_up
-    Dir.mkdir Rails.root+"public/uploads/" unless Dir.exists?(Rails.root+"public/uploads/")
-    path = Rails.root.join('public', 'uploads/', file_up.original_filename)
-    File.open(path , 'wb') do |file|
-      file.write(file_up.read)
+  def convert file,to_path,extention=".mp4",options=%w(-strict -2)
+    tmp = "#{Rails.root}/public/uploads/temp"
+    Dir.mkdir tmp unless Dir.exists? tmp
+    filetmp = "#{tmp}/#{file.original_filename}"
+    File.open(filetmp , 'wb') do |filew|
+      filew.write(file.read)
     end
-    return path
+    movie = FFMPEG::Movie.new(filetmp)
+    ext = File.extname(file.original_filename)
+    base = File.basename(file.original_filename, ext)
+    file_save = "#{to_path}/#{base}#{extention}"
+    movie.transcode(file_save, options)
+    FileUtils.rm_rf tmp
+    return file_save
+  end
+
+  def uploaded file_up, user='default'
+    path_save = "#{Rails.root}/public/uploads/#{user}"
+    Dir.mkdir path_save unless Dir.exists? path_save
+    ext = File.extname(file_up.original_filename)
+
+    if ext == ".mp4" || ext == ".webm"
+      file_save = "#{path_save}/#{file_up.original_filename}"
+      File.open(file_save , 'wb') do |file|
+        file.write(file_up.read)
+      end
+    elsif ['.mkv','.mpeg','.avi','.wmv','.mpg','.rmvb','.flv'].include?(ext.downcase)
+      file_save = convert file_up, path_save
+    end
+    return file_save
   end
 
   def del_upfile path

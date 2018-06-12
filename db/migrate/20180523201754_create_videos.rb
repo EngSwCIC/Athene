@@ -1,6 +1,7 @@
 class CreateVideos < ActiveRecord::Migration[5.2]
   def change
     create_table :videos do |t|
+      t.integer :user , :null => :true
       t.string :title
       t.text :description
       t.string :file_path

@@ -15,6 +15,7 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 - [Github](https://git-scm.com/)
 - [Ruby](https://www.ruby-lang.org/en/documentation/installation/) version: ```2.4.1```
 - [Ruby gems](https://rubygems.org/pages/download) version: ```2.6```
+- [FFmpeg](http://trac.ffmpeg.org/wiki/CompilationGuide) version: ```2.8```
 - [Rails](http://installrails.com/) version: ```5.2.0```
 
 ### Database creation
@@ -35,6 +36,7 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 
 5. Go back to your commando line and set up the database by running ```$ rake db:setup```.
 
+
 ### Instalation and execution
 
 1. Clone the repository: ```git clone https://github.com/EngSwCIC/Athene.git```.
@@ -45,6 +47,18 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 5. Deploy the application server by running ```rails server``` on the projects root directory.
 6. The application will run by default on ```localhost:3000```.
 7. If you want to host the application on a different IP or port, just run ```rails server -b $IP -p $PORT```.
+
+
+#### Database clean Installation
+
+1. after you did steps 1 ,2 and 3 of Instalation and execution, make sure you are in Athene root and enter these commands in command line
+
+	```# rake db:drop:all ```
+
+	```# rake db:create:all ```
+
+2. Continue in Instalation and execution
+
 
 ### Testing Aplication
 #### BDD
