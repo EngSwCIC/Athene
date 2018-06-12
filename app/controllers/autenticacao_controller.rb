@@ -9,9 +9,6 @@ class AutenticacaoController < ApplicationController
 		end
 	end
 
-	def stream_test
-	end
-
 	def logout #logout caso o usuario deseje sair
 		cookies.delete :login
 		redirect_to '/login'
