@@ -1,6 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe AutenticacaoController, type: :controller do
+	let(:valid_attributes) { 
+		{ nick:"testesk", senha:"teste123", email:"teste@gmail.com" } 
+	}
+
+	let(:valid_argments) {
+	    { nick:"testesk", senha:"teste123", email:"teste@gmail.com", controller:'autenticacao',action:'login'  }	
+	}
+
+	let(:invalid_attributes){ 
+		{ nick:"inexistente", senha:"inexistente", email:"nenhum@gamil.com" } 
+	}
+
+	let(:invalid_argments){
+		{ nick:"inexistente", senha:"inexistente", email:"nenhum@gamil.com", controller:'autenticacao',action:'login' }
+	}
 	let(:valid_session) { {} }
 
 	describe "GET #login" do
@@ -8,27 +23,28 @@ RSpec.describe AutenticacaoController, type: :controller do
 			get :login, params: {}, session: valid_session
 			expect(response).to render_template("login")
 		end
+	end
 
-		it "entra em uma pagina de login parametrizada sem nick e senha" do
-			get :login, params: { nick:"",senha:"",Acesso:"Logar" }, session: valid_session
-			expect(controller.params[:nick]).to eq ""
-			expect(controller.params[:senha]).to eq ""
-			expect(controller.params[:Acesso]).to eq "Logar"
-		end
+	describe "POST #login" do
+        before(:each) do
+           @user = User.new valid_attributes
+        end
 
-		it "entra em uma pagina de login parametrizada com nick e sem senha" do
-			get :login, params: { nick:"asdfg",senha:"",Acesso:"Logar" }, session: valid_session
-			expect(controller.params[:nick]).to eq "asdfg"
-			expect(controller.params[:senha]).to eq ""
-			expect(controller.params[:Acesso]).to eq "Logar"
-		end
+        after(:each) do
+           @user.destroy
+        end
 
-		it "entra em uma pagina de login parametrizada sem nick e com senha" do
-			get :login, params: { nick:"",senha:"hufbybendm",Acesso:"Logar" }, session: valid_session
-			expect(controller.params[:nick]).to eq ""
-			expect(controller.params[:senha]).to eq "hufbybendm"
-			expect(controller.params[:Acesso]).to eq "Logar"
-		end
+        it "faz o login na pagina"  do
+            post :login, params: valid_attributes , session: valid_session
+            expect(controller.params).to eq ActionController::Parameters.new valid_argments
+            expect(response).to be_success
+        end
+
+        it "nao faz o login pois o usuario nao existe" do
+            post :login, params: invalid_attributes , session: valid_session
+            expect(controller.params).to eq ActionController::Parameters.new invalid_argments
+            expect(response).to be_success
+        end
 	end
 
 end
