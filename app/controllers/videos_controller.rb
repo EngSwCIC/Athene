@@ -59,7 +59,7 @@ class VideosController < ApplicationController
     end
     cookies.delete :arquivo unless cookies[:arquivo].nil?
     respond_to do |format|
-      if @video.save!
+      if @video.save
         format.html { redirect_to @video , notice: 'Upload feito com sucesso!' }
         format.json { render :show, status: :created, location: @video }
       else
