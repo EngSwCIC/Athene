@@ -14,21 +14,21 @@
 
 		<form action='buscar'>
 			<ul><li>
-				<a href='/'>Athene</a> &nbsp&nbsp&nbsp
-				<%= text_field_tag :titulo%> 
-				<%= submit_tag "Pusca"%>
+			<a href='/'>Athene</a> &nbsp&nbsp&nbsp
+					<%= text_field_tag :titulo%> 
+					<%= submit_tag "Pusca"%>
 
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				<a href='/upload'>Upload</a>
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<a href='/upload'>Upload</a>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
-				<% if cookies[:login].nil?%> <%# verifica se o usuario esta logado%>
-					<a href='/registrar'>Registrar</a>
-					&nbsp&nbsp
-					<a href='/login'>Logar</a>
-				<% else%> <%# caso esteja cria um link para que o usuario possa deslogar%>
-					<%= link_to "Logout", :controller => 'autenticacao', :action => 'logout'%>
-				<% end%>
+			<% if cookies[:login].nil?%> <%# verifica se o usuario esta logado%>
+				<a href='/registrar'>Registrar</a>
+				&nbsp&nbsp
+				<a href='/login'>Logar</a>
+			<% else%> <%# caso esteja cria um link para que o usuario possa deslogar%>
+				<%= link_to "Logout", :controller => 'autenticacao', :action => 'logout'%>
+			<% end%>
 			</ul></li>
 		</form>
 

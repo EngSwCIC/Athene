@@ -12,15 +12,19 @@
 	</thead>
 
 	<tbody>
-		<% @videos.each do |video| %>
-			<tr>
-				<td><%v = '/videos/'+video.id.to_s%><a href=<%=v%>> <%= video.title%> </a> </td>
-				<td><%if (video.user != -1) %>
-							<% user = User.find(video.user)%><a href=<%="users/#{video.user}"%>><%=user.nick%></a>
+		<% if @videos.empty? %>
+  			<%="Nenhum video encontrado"%>
+		<% else %>
+			<% @videos.each do |video| %>
+				<tr>
+					<td><%v = '/videos/'+video.id.to_s%><a href=<%=v%>> <%= video.title%> </a> </td>
+					<td><%if (video.user != -1) %>
+								<% user = User.find(video.user)%><a href=<%="users/#{video.user}"%>><%=user.nick%></a>
 						<%else%>
-							anônimo
+								anônimo
 						<%end%>
-						</td>
+					</td>
+		<% end %>
 
 <%
 =begin

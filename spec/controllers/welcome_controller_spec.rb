@@ -9,4 +9,14 @@ RSpec.describe WelcomeController, type: :controller do
     end
   end
 
+  describe "index" do
+    it "recebe videos" do
+      expect(@videos).to_not be_empty
+    end
+
+    it "nao recebe videos" do
+      expect(@videos).to be_empty
+    end
+  end
+
 end
