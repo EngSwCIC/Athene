@@ -1,0 +1,15 @@
+<%= form_tag :url => { :controller => 'videos', :id => "#{@video.id}" } do %>
+<p>
+<%= label_tag "Título:"%>
+<%= text_field_tag :title%>
+</p>
+
+<p>
+<%= label_tag "Description:"%>
+<%= text_area_tag :description%>
+</p>
+
+
+<%= submit_tag "Edit",
+	:name => 'edit' %>
+<% end %>

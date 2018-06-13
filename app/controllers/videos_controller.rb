@@ -37,6 +37,21 @@ class VideosController < ApplicationController
   def edit
   end
 
+  def edit_video
+    @video = Video.find(params[:id])
+    if params[:title] != "" && params[:description] != ""
+      @video.title = params[:title]
+      @video.description = params[:description]
+      @video.valid = "arq.mp4"
+      @video.save!
+      redirect_to @video
+    else
+      respond_to do |format|
+        format.html { redirect_to "/videos/#{@video.id}/edit" , notice: 'Campos vazios' }
+      end
+    end
+  end
+
   # POST /videos
   # POST /videos.json
   def create
