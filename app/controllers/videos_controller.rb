@@ -87,6 +87,7 @@ class VideosController < ApplicationController
 
   def uploaded file_up, user='default'
     path_save = "#{Rails.root}/public/uploads/#{user}"
+    Dir.mkdir "#{Rails.root}/public/uploads" unless Dir.exists? "#{Rails.root}/public/uploads"
     Dir.mkdir path_save unless Dir.exists? path_save
     ext = File.extname(file_up.original_filename)
 
