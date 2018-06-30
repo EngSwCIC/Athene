@@ -1,32 +1,60 @@
+<!doctype html>
+<html lang="pt">  
+<body>
+  <div class="mx-auto" style="padding-top: 170px; width: 300px;">
+    <form action="login" class="login-form text-center">
+      <h1 class="mb-3">REGISTRAR</h1>
+      <label for="inputName" class="sr-only"> <%=:nick%> </label>
+      <input type="name" id="inputName" class="form-control" placeholder="Nickname" required autofocus>
+      <label for="inputPassword" class="sr-only"> <%=:senha%> </label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+      <label for="inputEmail" class="sr-only"> <%=:email%> </label>
+      <input type="name" id="inputEmail" class="form-control" placeholder="Nickname" required autofocus>
+      <div class="btn btn-lg btn-primary btn-block">
+        <%= submit_tag "Registrar",:name => 'Registrar' %>
+      </div>
+      <div>
+        <div class="alert alert-success">
+          <p style="text-align: left;">Mensagem:</p>
+          <strong>i'm a message</strong></br>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
+
+<!--
 <%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label "Nickname" %>
-    <%= form.text_field :nick %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Senha" %>
-    <%= form.password_field :senha %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Email" %>
-    <%= form.text_field :email%>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Registrar"%>
-  </div>
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
+<div class="field">
+  <%= form.label "Nickname" %>
+  <%= form.text_field :nick %>
+</div>
+
+<div class="field">
+  <%= form.label "Senha" %>
+  <%= form.password_field :senha %>
+</div>
+
+<div class="field">
+  <%= form.label "Email" %>
+  <%= form.text_field :email%>
+</div>
+
+<div class="actions">
+  <%= form.submit "Registrar"%>
+</div>
+<% end %>--!>

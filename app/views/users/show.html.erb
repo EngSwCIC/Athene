@@ -1,18 +1,47 @@
+<!doctype html>
+<html lang="pt">  
+<body>
+	<div class="mx-auto" style="padding-top: 170px; width: 300px;">
+		<form action="login" class="login-form text-center">
+			<h1 class="mb-4">VISUALIZAR</h1>
+			<input type="name" id="inputName" class="form-control" placeholder="<%= @user.nick %>"readonly autofocus>
+			<input type="password" id="inputPassword" class="form-control" placeholder="<%= @user.senha %>" readonly>
+			<input type="name" id="inputEmail" class="form-control" placeholder="<%= @user.email %>" readonly>
+			<div class="btn-lg btn-group col-md-10"> 
+				<p> <%= link_to 'EDITAR', edit_user_path(@user) %> </p> &nbsp &nbsp &nbsp &nbsp &nbsp
+				<p> <%= link_to 'VOLTAR', users_path %> </p>
+			</div>
+			<div class="alert alert-success">
+				<p style="text-align: left;">Mensagem:</p>
+				<strong>i'm a message</strong></br>
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nick:</strong>
-  <%= @user.nick %>
+	<strong>Nick:</strong>
+	<%= @user.nick %>
 </p>
 
 <p>
-  <strong>Senha:</strong>
-  <%= @user.senha %>
+	<strong>Senha:</strong>
+	<%= @user.senha %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+	<strong>Email:</strong>
+	<%= @user.email %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
