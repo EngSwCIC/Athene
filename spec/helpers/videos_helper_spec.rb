@@ -39,4 +39,37 @@ RSpec.describe VideosHelper, type: :helper do
       expect(helper.comment_user? @user.id, @logon).to eq true
 	end
   end
+
+  describe "#user_video" do
+    before(:context) do
+      @user = User.new(nick: 'teste',senha: 'teste', email: 'teste@gmail.com')
+      @user.save!
+    end
+
+    it "retorna um usuario de um video caso exista na base de dados" do
+      expect(helper.user_video @user.id ).to eq @user.nick
+    end
+
+    after(:context) do
+      @user.destroy unless @user.nil?
+    end
+
+    it "retorna um usuario anonimo caso o usuario não esteja cadastrado na base de dados" do
+      expect(helper.user_video -1 ).to eq "Anonymous"
+    end
+
+    it "retorna um usuario anonimo caso o usuario não exista na base de dados" do
+      expect(helper.user_video 2 ).to eq "Anonymous"
+    end
+  end
+
+  describe "#token" do
+     it "retorna um id do token feliz caso seja um token de sucesso!" do
+        expect(helper.token "asdf").to eq 'good_token'
+     end
+
+     it "retorna um id de token triste caso seja um token falho!" do 
+       expect(helper.token "É preciso estar logado para comentar").to eq 'bad_token'
+     end
+  end
 end
