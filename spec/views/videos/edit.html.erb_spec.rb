@@ -12,11 +12,11 @@ RSpec.describe "videos/edit", type: :view do
   it "renders the edit video form" do
     render
 
-    assert_select "form[action=?][method=?]", videos_path, "post" do
+    assert_select "form[action=?][method=?]", "", "post" do
 
-      assert_select "input[name=?]", "video[title]"
+      assert_select "input[name=?]", "title"
 
-      assert_select "textarea[name=?]", "video[description]"
+      assert_select "textarea[name=?]", "description"
 
       assert_select "input[id=?]", "upload"
 

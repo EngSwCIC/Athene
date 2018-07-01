@@ -6,7 +6,7 @@ end
 
 Given("I am on an existing video page") do
   @video = Video.new(title: "Furious lion", description: "Watch how this lion does nothing.")
-  @video.arq_video = "#{Rails.root}public/uploads/1/lion-sample.mp4"
+  @video.arq_video = "#{Rails.root}features/videos/teste.mp4"
   @video.file_path = @video.arq_video
   @video.valid = "lion-sample.mp4"
   @video.user = 1
