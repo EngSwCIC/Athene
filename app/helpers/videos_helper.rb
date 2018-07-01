@@ -13,4 +13,25 @@ module VideosHelper
     end
     return user.id == id
   end
+
+  def user_video id
+    if id == -1
+      return "Anonymous"
+    else
+      user_reg = User.find(id)
+      if user_reg.nil?
+        user = "Anonymous"
+      else
+        user = user_reg.nick
+      end
+    end
+    return user
+  end
+
+  def token string
+    if failed_message string
+      return 'bad_token'
+    end
+    return 'good_token'
+  end
 end

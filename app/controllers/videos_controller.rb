@@ -31,6 +31,8 @@ class VideosController < ApplicationController
     @video_id = Video.find(params[:id])
     @new_comment = Comment.build_from(@video, @video_id, "")
     cookies[:return_to] = request.env['PATH_INFO']
+    @videos = Video.where("title LIKE :title_name OR description LIKE :desc_text",
+      {:title_name => "%#{@video.title}%", :desc_text => "%#{@video.description}%"})
   end
 
   # GET /videos/new

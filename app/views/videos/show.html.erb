@@ -1,12 +1,15 @@
 <% if !notice.nil?%>
- <% if failed_message notice %>
-  <%= content_tag(:p , notice, :id => 'bad_token') %></br>
- <% else %>
- <%= content_tag(:p , notice, :id => 'good_token') %></br>
- <% end %>
+<%= content_tag(:p, notice, :id => token(notice))%>
 <% end %>
-
-<h2 id='recomendados'>Videos recomendados</h2>
+<div id='recomendados'>
+<h2>Videos recomendados</h2>
+<% @videos.each do |video|%>
+<% if video.id != @video.id %>
+<h3><%=link_to video.title, "/videos/#{video.id}"%></h3>
+<p><%= user_video video.user%></p>
+<% end %>
+<% end %>
+</div>
 <%= video_tag @video.file_path.gsub("#{Rails.root}/public",''), width:640, height:480,controls: true %>
 <h2><%= @video.title %></h2>
 <p><%= @video.description %></p>
