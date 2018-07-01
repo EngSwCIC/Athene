@@ -17,7 +17,8 @@ class VideosController < ApplicationController
         user = User.find_by nick: cookies[:login]
         @videos = Video.where({user: user.id})
       else
-        @videos = Video.all
+        redirect_to :controller => "autenticacao", :action => "login"
+        #@videos = Video.all => precisa do login de administrador
       end
     end
   end

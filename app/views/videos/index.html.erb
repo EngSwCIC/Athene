@@ -5,25 +5,21 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>File path</th>
-      <th colspan="3"></th>
+      <th>Titulo</th>
+      <th>Descrição</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
-   <% if !@videos.nil? %>
-     <% @videos.each do |video| %>
-       <tr>
-         <td><%= video.title %></td>
-         <td><%= video.description %></td>
-         <td><%= video.file_path %></td>
-         <td><%= link_to 'Show', video %></td>
-         <td><%= link_to 'Edit', edit_video_path(video) %></td>
-         <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       </tr>
-     <% end %>
+   <% @videos&.each do |video| %>
+      <tr>
+        <td><%= video.title %></td>
+        <td><%= video.description %></td>
+        <td><%= link_to 'Mostrar Video', video %></td>
+        <td><%= link_to 'Editar', edit_video_path(video) %></td>
+        <td><%= link_to 'Deletar', video, method: :delete, data: { confirm: 'Você em certeza?' } %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
