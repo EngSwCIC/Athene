@@ -3,7 +3,7 @@
 <% end %>
 <div id='recomendados'>
 <h2>Videos recomendados</h2>
-<% @videos.each do |video|%>
+<% @videos&.each do |video|%>
 <% if video.id != @video.id %>
 <h3><%=link_to video.title, "/videos/#{video.id}"%></h3>
 <p><%= user_video video.user%></p>

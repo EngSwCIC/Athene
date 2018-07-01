@@ -18,7 +18,7 @@ module VideosHelper
     if id == -1
       return "Anonymous"
     else
-      user_reg = User.find(id)
+      user_reg = User.find_by id:id
       if user_reg.nil?
         user = "Anonymous"
       else
