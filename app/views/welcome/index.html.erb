@@ -6,7 +6,7 @@
 
 <h2>Últimos vídeos</h2>
 <% #raise "lista nao eh nula" unless @lista != nil%>
-<% if @lista.nil? %>
+<% if @lista.nil? || @lista.empty? %>
   <%="Nenhum video encontrado"%>
 <% else %>
   <% @lista&.each do |video| %>
