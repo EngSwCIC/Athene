@@ -12,10 +12,10 @@
 	</thead>
 
 	<tbody>
-		<% if @videos.empty? %>
+		<% if @videos.nil? %>
   			<%="Nenhum video encontrado"%>
 		<% else %>
-			<% @videos.each do |video| %>
+			<% @videos&.each do |video| %>
 				<tr>
 					<td><%v = '/videos/'+video.id.to_s%><a href=<%=v%>> <%= video.title%> </a> </td>
 					<td><%if (video.user != -1) %>
