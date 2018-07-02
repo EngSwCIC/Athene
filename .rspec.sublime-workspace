@@ -1,0 +1,364 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"unord",
+				"unordered_map\tstandard header (since c++11)"
+			],
+			[
+				"q",
+				"query"
+			],
+			[
+				"sub",
+				"subtracao"
+			],
+			[
+				"P",
+				"PARA"
+			],
+			[
+				"temp",
+				"tempaprovadas"
+			],
+			[
+				"size",
+				"size_type"
+			],
+			[
+				"Cie",
+				"CienciasNaturais"
+			],
+			[
+				"Cienci",
+				"CienciasHumanas"
+			],
+			[
+				"NU",
+				"NU_IDADE"
+			],
+			[
+				"tabcandi",
+				"TAB_CANDIDATO_PROVA_MT"
+			],
+			[
+				"N",
+				"NU_INSCRICAO"
+			],
+			[
+				"TX",
+				"TX_RESPOSTAS_CN"
+			],
+			[
+				"tp",
+				"TP_PRESENCA_CN"
+			],
+			[
+				"menor",
+				"menorset"
+			],
+			[
+				"dfs",
+				"dfs_num"
+			],
+			[
+				"class",
+				"classeMaxima"
+			],
+			[
+				"ant",
+				"anterior"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 124.0,
+		"last_filter": "Snippet: ",
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			]
+		],
+		"width": 497.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/dellamora/Dropbox/UnB/EngSoft/Ath/app/views/autenticacao/login.html.erb",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/aop/tp2.ah",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/aop/tp2.h",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/aop/tp2.cpp",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/aop/main.cpp",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/template wrapper/main.cpp",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/template wrapper/tp2.cpp",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/template wrapper/tp2.h",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/macro/tp2.h",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/macro/main.cpp",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/macro/tp2.cpp",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/original/tp2.h",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/original/main.cpp",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/KWIC/original/tp2.cpp",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/WordCount/wordcount.h",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/WordCount/main.cpp",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/WordCount/wordcount.cpp",
+		"/home/dellamora/Desktop/Dropbox UnB/TP2/gito/WordCount/wordcount.cpp",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/WordCount/wordcounto.cpp",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/WordCount/wordcounto.hpp",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/WordCount/wordcount.hpp",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/EPL/Add.cpp",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/EPL/Expression.cpp",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/KWIC/aop/tp2.ah",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/KWIC/macro/tp2.cpp",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/KWIC/template wrapper/tp2.h",
+		"/home/dellamora/Dropbox/UnB/TP2/gito/KWIC/template wrapper/tp2.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/output.txt",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/input.txt",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C2J.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C2C.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C2H.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/chartest.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P2E.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P2A.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P2B.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P2C.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P2D.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C2I.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C2F.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C2D.cpp",
+		"/home/dellamora/Dropbox/UnB/oac/lab1b/System_Mars/SYSTEMv63.s",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C2A.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C2B.cpp",
+		"/home/dellamora/Dropbox/UnB/EngSoft/ruby/world.rb",
+		"/home/dellamora/Dropbox/UnB/EngSoft/ruby/Puts.rb",
+		"/home/dellamora/Dropbox/UnB/oac/lab1/input.txt",
+		"/home/dellamora/Dropbox/UnB/oac/lab1b/texec.cpp",
+		"/home/dellamora/Dropbox/UnB/oac/lab1/vetoresv.txt",
+		"/media/dellamora/OS/Games/LemmingBallZALPHA/linux_install_run.sh",
+		"/home/dellamora/yea/tpdois/EPL/Makefile",
+		"/home/dellamora/yea/tpdois/EPL/Literal.cpp",
+		"/home/dellamora/yea/tpdois/EPL/Literal.hpp",
+		"/home/dellamora/yea/tpdois/EPL/Eval.cpp",
+		"/home/dellamora/yea/tpdois/EPL/Eval.hpp",
+		"/home/dellamora/yea/tpdois/EPL/main.cpp",
+		"/home/dellamora/yea/tpdois/EPL/Visitor.hpp",
+		"/home/dellamora/yea/tpdois/EPL/Mul.hpp",
+		"/home/dellamora/yea/tpdois/EPL/Sub.hpp",
+		"/home/dellamora/yea/tpdois/EPL/Add.hpp",
+		"/home/dellamora/yea/tpdois/EPL/Mul.cpp",
+		"/home/dellamora/yea/tpdois/EPL/Sub.cpp",
+		"/home/dellamora/yea/tpdois/EPL/Add.cpp",
+		"/home/dellamora/yea/tpdois/EPL/Expression.hpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/main.cpp",
+		"/home/dellamora/Dropbox/UnB/grafos/trab4/src/main.cpp",
+		"/home/dellamora/Dropbox/UnB/oac/lab1/vetores.cpp",
+		"/home/dellamora/Dropbox/UnB/oac/lab1/output.txt",
+		"/home/dellamora/Dropbox/UnB/grafos/trab4/src/Eval.hpp",
+		"/home/dellamora/yea/tpdois/EPL/Expression.cpp",
+		"/home/dellamora/yea/tpdois/EPL/Visitor.cpp",
+		"/home/dellamora/yea/tpdois/EPL/vop.h",
+		"/home/dellamora/yea/tpdois/EPL/test.cpp",
+		"/home/dellamora/Dropbox/UnB/grafos/trab4/src/deputado.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P1Ec.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P1D.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/catch.hpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/TEST.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/VOP.h",
+		"/home/dellamora/Downloads/VOP3.h",
+		"/home/dellamora/Downloads/main3.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/color.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/EVAL.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/VISITOR.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/SUB.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/MULT.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/ADD.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/CORE.cpp",
+		"/home/dellamora/yea/tp2/progtech2/EPL/MAIN.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/F1M.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1N.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1M.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1L.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1K.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1I.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1H.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1G.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1F.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1E.cpp",
+		"/home/dellamora/.config/sublime-text-3/Packages/User/cpp.sublime-snippet",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1D.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1C.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1B.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/uri/base.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/C1A.cpp",
+		"/home/dellamora/.bashrc",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P1E.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P1B.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P1C.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/P1A.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/H.cpp",
+		"/home/dellamora/Desktop/stopwords.txt",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/tststring.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/deivisG.cpp",
+		"/home/dellamora/Downloads/1g2.cpp",
+		"/home/dellamora/Downloads/1g.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/deivisF.cpp",
+		"/home/dellamora/Downloads/1f2.cpp",
+		"/home/dellamora/Downloads/1f.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/deivisE.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/deivisC.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/deivisD.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/deivisA.cpp",
+		"/home/dellamora/Dropbox/UnB/progcomp/codeforces/deivisB.cpp",
+		"/home/dellamora/yea/bd/projfinal/DBGUI/Consultas SQL.sql",
+		"/home/dellamora/yea/bd/projfinal/DBGUI/LaravelDB/database/models/Consulta2Model.php",
+		"/home/dellamora/yea/bd/projfinal/DBGUI/LaravelDB/database/models/Consulta3Model.php",
+		"/home/dellamora/yea/bd/projfinal/DBGUI/LaravelDB/database/models/Consulta4Model.php"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": ".rspec.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 257.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
