@@ -8,29 +8,28 @@
 			<input type="name" id="inputEmail" class="form-control" placeholder="Nickname" required autofocus>
 			<label for="inputPassword" class="sr-only"> <%=:password%> </label>
 			<input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
-			<div class="btn btn-lg btn-primary btn-block">
-				<%= submit_tag "Logar",:name => 'Acesso' %>
+			<div class="btn-group btn btn-primary col-lg-12">
+				<%= submit_tag "LOGAR",:name => 'Acesso', :class => "btn btn-primary col-lg-12" %>
+			<br> <br>
+				<%= link_to 'NOVO USUÁRIO', new_user_path, :class => "btn btn-primary col-lg-12" %>	
 			</div>
-			<div class="btn-lg  col-md-10"> 
-				<p> <%= link_to 'NOVO USUÁRIO', new_user_path %> </p>
+			<% if @message !=nil%> <%# verifica a mensagem enviada da controladora%>
+
+			<% if sucess_message @message %>
+			<div class="alert alert-success">
+				<p style="text-align: left;">Mensagem:</p>
+				<strong><%= content_tag(:p , @message, :id => 'good_token') %></strong></br>
 			</div>
-			<div>
-				<% if @message !=nil%> <%# verifica a mensagem enviada da controladora%>
-				<% if sucess_message @message %>
-				<div class="alert alert-success">
-					<p style="text-align: left;">Mensagem:</p>
-					<strong><%= content_tag(:p , @message, :id => 'good_token') %></strong></br>
-				</div>
-				<% else %>
-				<div class="alert alert-warning">
-					<p style="text-align: left;">Mensagem:</p>
-					<strong><%= content_tag(:p , @message, :id => 'bad_token') %></strong></br>
-				</div>
-				<% end %>
-				<% end %>
+			<% else %>
+			<div class="alert alert-warning">
+				<p style="text-align: left;">Mensagem:</p>
+				<strong><%= content_tag(:p , @message, :id => 'bad_token') %></strong></br>
 			</div>
-		</form>
-	</div>
+			<% end %>
+			<% end %>
+		</div>
+	</form>
+</div>
 </div>
 </body>
 </html>

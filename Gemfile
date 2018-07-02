@@ -5,7 +5,6 @@ ruby '2.4.1'
 
 #install boostrap
 gem 'autoprefixer-rails'
-gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
 gem 'bootstrap', '~> 4.1.1'
 

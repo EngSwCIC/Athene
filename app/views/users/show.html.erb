@@ -3,14 +3,12 @@
 <body>
 	<div class="mx-auto" style="padding-top: 170px; width: 300px;">
 		<form action="login" class="login-form text-center">
-			<h1 class="mb-4">VISUALIZAR</h1>
+			<h2 class="mb-3">VISUALIZAR</h2>
 			<input type="name" id="inputName" class="form-control" placeholder="<%= @user.nick %>"readonly autofocus>
 			<input type="password" id="inputPassword" class="form-control" placeholder="<%= @user.senha %>" readonly>
 			<input type="name" id="inputEmail" class="form-control" placeholder="<%= @user.email %>" readonly>
-			<div class="btn-lg btn-group col-md-10"> 
-				<p> <%= link_to 'EDITAR', edit_user_path(@user) %> </p> &nbsp &nbsp &nbsp &nbsp &nbsp
-				<p> <%= link_to 'VOLTAR', users_path %> </p>
-			</div>
+				<p> <%= link_to 'EDITAR', edit_user_path(@user), :class => "btn btn-primary col-lg-12"  %>
+				<p> <%= link_to 'VOLTAR', users_path, :class => "btn btn-primary col-lg-12"  %>  </p>
 			<div class="alert alert-info">
 				<p style="text-align: left;">Mensagem:</p>
 				<strong>i'm a message</strong></br>
@@ -26,7 +24,7 @@
 
 
 
-
+<!--
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -45,4 +43,4 @@
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %>--!>

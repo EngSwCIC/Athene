@@ -3,16 +3,14 @@
 <body>
   <div class="mx-auto" style="padding-top: 170px; width: 300px;">
     <form action="login" class="login-form text-center">
-      <h2 class="mb-3">REGISTRAR</h2>
+      <h2 class="mb-3">EDITAR USUÁRIO</h2>
       <label for="inputName" class="sr-only"> </label>
-      <input type="name" name="nick" id="inputName" class="form-control" placeholder="Nickname" required autofocus>
+      <input type="name" id="inputName" class="form-control" placeholder="<%= @user.nick %>" autofocus>
       <label for="inputPassword" class="sr-only"> </label>
-      <input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha" required>
+      <input type="password" id="inputPassword" class="form-control" placeholder="<%= @user.senha %>">
       <label for="inputEmail" class="sr-only"> </label>
-      <input type="name" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-
-          <button type="submit" class="btn btn-primary col-md-12">Registrar</button>
- 
+      <input type="name" id="inputEmail" class="form-control" placeholder="<%= @user.email %>">
+      <button type="submit" class="btn btn-primary col-md-12">EDITAR</button>
       <div>
         <div class="alert alert-info">
           <p style="text-align: left;">Mensagem:</p>
