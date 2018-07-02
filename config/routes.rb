@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'login(.:format)' => 'autenticacao#login'
   get 'upload' => 'videos#new'
   get 'error' => 'videos#show_error'
+  get 'channel/(:user_name)' => 'videos#channel'
   post 'videos/(:id)/edit(.:format)' => 'videos#edit_video'
 
   match ':controller(/:action(/:id))', :via => :get #faz um match da controladora com uma action e uma id

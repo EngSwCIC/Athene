@@ -1,0 +1,5 @@
+<h1><%= @user.nick%></h1>
+<% @videos&.each do |video|%>
+  <h3><%= video.title %></h3>
+  <p><%= @user.nick %></p>
+<% end %>

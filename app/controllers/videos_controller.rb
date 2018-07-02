@@ -25,6 +25,11 @@ class VideosController < ApplicationController
   def show_error
   end
 
+  def channel
+    @user = User.find_by nick: params[:user_name]
+    @videos = Video.where({user: @user.id})
+  end
+
   # GET /videos/1
   # GET /videos/1.json
   def show
