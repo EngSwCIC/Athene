@@ -27,7 +27,11 @@ class VideosController < ApplicationController
 
   def channel
     @user = User.find_by nick: params[:user_name]
-    @videos = Video.where({user: @user.id})
+    if !@user.nil?
+      @videos = Video.where({user: @user.id})
+    else
+      @message = "Erro!Este canal não existe"
+    end
   end
 
   # GET /videos/1
