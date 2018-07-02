@@ -1,0 +1,12 @@
+<h1>Athene, a mais poderosa plataforma livre de vídeos</h1>
+<h6> modestidade é tudo</h6>
+<br>
+
+
+
+<h2>Últimos vídeos</h2>
+<% @lista.each do |video| %>
+	<%v = '/videos/'+video.id.to_s%>
+	<h3><a href=<%=v%>> <%= video.title%></a>
+	<br></h3>
+<%end%>
