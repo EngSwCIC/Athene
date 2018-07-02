@@ -3,5 +3,5 @@
 <% if cookies[:login].nil?%> <%# verifica se o usuario esta logado%>
 <%= render 'login_form'%> <%# caso nao esteja, imprime o formulario de login%>
 <% else%> <%# caso esteja cria um link para que o usuario possa deslogar%>
-<%= link_to "logout",:action => 'logout'%>
+<%= link_to "Logout", :controller => 'autenticacao', :action => 'logout'%>
 <% end%>

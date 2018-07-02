@@ -1,0 +1,13 @@
+<% if @message.nil? %>
+<h1><%= @user.nick%></h1>
+<ul style="list-style: none">
+<% @videos&.each do |video|%>
+  <li style="float:left;margin: 0 25px 0 0;">
+  <h3><%= link_to video.title, "/videos/#{video.id}" %></h3>
+  <p><%= @user.nick %></p>
+  </li>
+<% end %>
+</ul>
+<% else %>
+<h2><%= @message%></h2>
+<% end %>

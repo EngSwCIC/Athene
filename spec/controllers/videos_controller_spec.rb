@@ -28,6 +28,10 @@ RSpec.describe VideosController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Video. As you add validations to Video, be sure to
   # adjust the attributes here as well.
+  let(:user_test) {
+    {nick: 'teste', senha: 'teste', email: 'teste@gmail.com'}
+  }
+
   let(:valid_attributes) {
     {title: 'algumacoisa', description: 'teste', user: 0 , arq_video: "#{Rails.root}/features/videos/teste.mp4", valid: "test.mp4"}
   }
@@ -73,6 +77,18 @@ RSpec.describe VideosController, type: :controller do
       video = Video.create! valid_attributes
       get :edit, params: {id: video.to_param}, session: valid_session
       expect(response).to be_success
+    end
+  end
+
+  describe "GET #channel" do
+    it "returns a success response" do
+      get :channel, params: {}, session: valid_session
+      expect(response).to be_success
+    end
+
+    it "returns a sucess response with params" do
+      user = User.create! user_test
+      get :channel, params: {user_name: 'teste'}, session: valid_session
     end
   end
 

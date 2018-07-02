@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Athene</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+	<head>
+		<title>Athene</title>
+		<%= csrf_meta_tags %>
+		<%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'  %>
-  </head>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'  %>
+	</head>
 
-  <body id=<%= controller_name %>>
-    <%= yield %>
-  </body>
+	<body id=<%= controller_name %>>
+		
+
+		<form action='buscar'>
+			<ul><li>
+			<a href='/'>Athene</a> &nbsp&nbsp&nbsp
+					<%= text_field_tag :titulo%> 
+					<%= submit_tag "Pusca"%>
+
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<a href='/upload'>Upload</a>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+			<% if cookies[:login].nil?%> <%# verifica se o usuario esta logado%>
+				<a href='/registrar'>Registrar</a>
+				&nbsp&nbsp
+				<a href='/login'>Logar</a>
+			<% else%> <%# caso esteja cria um link para que o usuario possa deslogar%>
+				<%= link_to "Logout", :controller => 'autenticacao', :action => 'logout'%>
+			<% end%>
+			</ul></li>
+		</form>
+
+
+		<%= yield %>
+
+		<ul><li>
+			<a href='/'>Sobre</a> &nbsp&nbsp&nbsp
+			<a href='/'>FAQ</a> &nbsp&nbsp&nbsp
+			<a href='/'>Contato</a> &nbsp&nbsp&nbsp
+
+	</body>
 </html>
