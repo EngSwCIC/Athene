@@ -5,8 +5,13 @@
 
 
 <h2>Últimos vídeos</h2>
-<% @lista.each do |video| %>
-	<%v = '/videos/'+video.id.to_s%>
+<% #raise "lista nao eh nula" unless @lista != nil%>
+<% if @lista.nil? %>
+  <%="Nenhum video encontrado"%>
+<% else %>
+  <% @lista&.each do |video| %>
+    <%v = '/videos/'+video.id.to_s%>
 	<h3><a href=<%=v%>> <%= video.title%></a>
 	<br></h3>
-<%end%>
+  <% end %>
+<% end %>
