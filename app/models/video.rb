@@ -1,4 +1,5 @@
 class Video < ApplicationRecord
+	acts_as_commentable
 	attr_accessor :arq_video,:valid
 	validates :title, presence: { :message => "Aba não preenchida"}
 	validates :user, presence: :false

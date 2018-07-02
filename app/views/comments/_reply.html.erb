@@ -1,0 +1,42 @@
+<% comments.each_with_index do |comment,i| %>  
+  <div class="comments-show">
+    <div class="comment">
+      <p><%= comment.user.nick %></p>
+      <p><%= comment.body %><br></p>
+        <div class="comment-nav"><a class="comment-reply" onclick="responder(<%= i %>)">responder</a></div>
+      <% if cookies[:login].nil? %>
+        <% @bad_token = true%>
+      <% end %>
+      <% if comment_user? comment.user.id%>
+        <div class="comment-nav"><%= link_to "deletar", comment , method: :delete ,id:'deletando'%></div>
+      <% end %>
+      <div class="reply-form">
+        <% if @bad_token != true %>
+         <%= form_for @new_comment do |f| %>
+           <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+           <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+           <%= f.hidden_field :comment_id, value: comment.id %>
+           <div class="field form-group">
+             <%= f.text_area :body, class: 'form-control',id: 'answer' %>
+           </div>
+           <div class="field form-group">
+             <%= submit_tag "Postar Resposta", class: 'btn btn-primary' %>
+           </div>
+         <% end %>
+        <% else %>
+           <p id='bad_token'>É necessario estar logado para que possa responder, faça o seu <a href='/login'>login</a> e responda este comentário</p> 
+        <% end %>
+      </div>
+    </div>
+    <%= render partial: "comments/reply", locals: {comments: comment.children} %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  function responder(id){
+   resp = document.getElementsByClassName('reply-form')[id];
+   if(resp != null){
+     resp.style.display = "block";
+   }
+  }
+</script>

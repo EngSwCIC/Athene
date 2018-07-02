@@ -1,10 +1,17 @@
-<p id="notice"><%= notice %></p>
-<% if !@video.nil? %>
-<h2 id='recomendados'>Videos recomendados</h2>
+<% if !notice.nil?%>
+<%= content_tag(:p, notice, :id => token(notice))%>
+<% end %>
+<div id='recomendados'>
+<h2>Videos recomendados</h2>
+<% @videos&.each do |video|%>
+<% if video.id != @video.id %>
+<h3><%=link_to video.title, "/videos/#{video.id}"%></h3>
+<p><%= user_video video.user%></p>
+<% end %>
+<% end %>
+</div>
 <%= video_tag @video.file_path.gsub("#{Rails.root}/public",''), width:640, height:480,controls: true %>
 <h2><%= @video.title %></h2>
 <p><%= @video.description %></p>
 <h3>Comentários</h3>
-<% else %>
-<h2>Video indefinido</h2>
-<% end %>
+<%= render partial: "comments/template", locals: {commentable: @video, new_comment: @comment} %>

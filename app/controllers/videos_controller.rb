@@ -7,15 +7,41 @@ class VideosController < ApplicationController
   def index
     if !params[:name_video].nil?
       @video = Video.find_by title: params[:name_video]
-      redirect_to @video
+      if !@video.nil?
+        redirect_to @video
+      else
+        redirect_to action: 'show_error'
+      end
     else
-      @videos = Video.all
+      if !cookies[:login].nil?
+        user = User.find_by nick: cookies[:login]
+        @videos = Video.where({user: user.id})
+      else
+        @videos = Video.all
+      end
+    end
+  end
+
+  def show_error
+  end
+
+  def channel
+    @user = User.find_by nick: params[:user_name]
+    if !@user.nil?
+      @videos = Video.where({user: @user.id})
+    else
+      @message = "Erro!Este canal não existe"
     end
   end
 
   # GET /videos/1
   # GET /videos/1.json
   def show
+    @video_id = Video.find(params[:id])
+    @new_comment = Comment.build_from(@video, @video_id, "")
+    cookies[:return_to] = request.env['PATH_INFO']
+    @videos = Video.where("title LIKE :title_name OR description LIKE :desc_text",
+      {:title_name => "%#{@video.title}%", :desc_text => "%#{@video.description}%"})
   end
 
   # GET /videos/new
@@ -25,6 +51,21 @@ class VideosController < ApplicationController
 
   # GET /videos/1/edit
   def edit
+  end
+
+  def edit_video
+    @video = Video.find(params[:id])
+    if params[:title] != "" && params[:description] != ""
+      @video.title = params[:title]
+      @video.description = params[:description]
+      @video.valid = "arq.mp4"
+      @video.save!
+      redirect_to @video
+    else
+      respond_to do |format|
+        format.html { redirect_to "/videos/#{@video.id}/edit" , notice: 'Campos vazios' }
+      end
+    end
   end
 
   # POST /videos
@@ -47,6 +88,7 @@ class VideosController < ApplicationController
     else
       @video.valid = nil
     end
+    cookies.delete :arquivo unless cookies[:arquivo].nil?
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video , notice: 'Upload feito com sucesso!' }
@@ -76,6 +118,7 @@ class VideosController < ApplicationController
 
   def uploaded file_up, user='default'
     path_save = "#{Rails.root}/public/uploads/#{user}"
+    Dir.mkdir "#{Rails.root}/public/uploads" unless Dir.exists? "#{Rails.root}/public/uploads"
     Dir.mkdir path_save unless Dir.exists? path_save
     ext = File.extname(file_up.original_filename)
 
