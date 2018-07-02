@@ -16,7 +16,6 @@
 			</div>
 			<div>
 				<% if @message !=nil%> <%# verifica a mensagem enviada da controladora%>
-
 				<% if sucess_message @message %>
 				<div class="alert alert-success">
 					<p style="text-align: left;">Mensagem:</p>
@@ -50,5 +49,4 @@
 
 	<%= submit_tag "Logar",
 	:name => 'Acesso' %>
-
 </form>--!>

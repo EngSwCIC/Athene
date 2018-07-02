@@ -10,7 +10,7 @@ if("#videos"){
     changer.onchange = function(){
       var filename = this.value;
       var lastIndex = filename.lastIndexOf("\\");
-      var extensions = /(\.mp4|\.mkv|\.mpeg|\.avi|\.wmv|\.mpg|\.webm)$/i;
+      var extensions = /(\.mp4|\.mkv|\.mpeg|\.avi|\.rmvb|\.wmv|\.mpg|\.webm|\.flv)$/i;
       if (lastIndex >= 0) {
         filename = filename.substring(lastIndex + 1);
       }
@@ -24,7 +24,7 @@ if("#videos"){
       if((file != null)&&(title.value != '')){
         show.innerHTML = "<div id='progresso'> \
                             <div id='barra'> </div>\
-                           ";
+                           </div>";
         carregar(file);
       }
     });

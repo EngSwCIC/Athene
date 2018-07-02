@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_06_04_183321) do
   end
 
   create_table "videos", force: :cascade do |t|
+    t.integer "user"
     t.string "title"
     t.text "description"
     t.string "file_path"

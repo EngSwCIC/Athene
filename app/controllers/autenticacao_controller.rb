@@ -3,6 +3,10 @@ class AutenticacaoController < ApplicationController
 		if params[:Acesso] == 'Logar' #verifica se o formulario foi enviado
 			verificar_database params[:nome], params[:password] #caso seja verifica no banco se existe o usuario
 		end
+		if !params[:notice].nil?
+			@message = params[:notice]
+			@check = @message
+		end
 	end
 
 	def logout #logout caso o usuario deseje sair
@@ -12,6 +16,7 @@ class AutenticacaoController < ApplicationController
 
 	private
 	def verificar_database nome, senha
+		@check = "login feito com sucesso!"
 		if nome == "" || senha == "" #valida se os campos estão preenchidos corretamente
 			if nome == "" && senha == ""
 				@message = "Campos vazios"
@@ -21,7 +26,7 @@ class AutenticacaoController < ApplicationController
 				@message = "Senha não preenchida"
 			end
 		elsif User.exists?(nick: nome,senha: senha) #se existir o login sera bem sucedido
-			@message = "login feito com sucesso!"
+			@message = @check
 			cookies[:login] = nome #armazena o nome do usuario em um cookie para identificar se esta logado ou nao
 		else
 			@message = "Erro Usuario Inexistente" #o login nao sera bem sucedido caso contrario

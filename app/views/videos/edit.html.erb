@@ -1,6 +1,8 @@
 <h1>Editing Video</h1>
-
-<%= render 'form', video: @video %>
+<% if !notice.nil? %>
+<%= content_tag(:p , notice, :id => 'bad_token') %>
+<% end %>
+<%= render 'edit_form'%>
 
 <%= link_to 'Show', @video %> |
 <%= link_to 'Back', videos_path %>
