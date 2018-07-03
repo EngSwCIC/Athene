@@ -1,31 +1,4 @@
-<!doctype html>
-<html lang="pt">  
-<body>
-  <div class="mx-auto" style="padding-top: 170px; width: 300px;">
-    <form action="login" class="login-form text-center">
-      <h2 class="mb-3">REGISTRAR</h2>
-      <label for="inputName" class="sr-only"> </label>
-      <input type="name" name="nick" id="inputName" class="form-control" placeholder="Nickname" required autofocus>
-      <label for="inputPassword" class="sr-only"> </label>
-      <input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha" required>
-      <label for="inputEmail" class="sr-only"> </label>
-      <input type="name" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
 
-          <button type="submit" class="btn btn-primary col-md-12">Registrar</button>
- 
-      <div>
-        <div class="alert alert-info">
-          <p style="text-align: left;">Mensagem:</p>
-          <strong>i'm a message</strong></br>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-</body>
-</html>
-
-<!--
 <%= form_with(model: user, local: true) do |form| %>
 <% if user.errors.any? %>
 <div id="error_explanation">
@@ -36,25 +9,27 @@
     <li><%= message %></li>
     <% end %>
   </ul>
-</div>
+
 <% end %>
-
+<h2 class="text-center"> REGISTRAR </h2>
 <div class="field">
-  <%= form.label "Nickname" %>
-  <%= form.text_field :nick %>
+  <%= form.label "Nickname",:class => "sr-only" %>
+  <%= form.text_field :nick, placeholder: "Nickname", :class => "form-control" %>
 </div>
 
 <div class="field">
-  <%= form.label "Senha" %>
-  <%= form.password_field :senha %>
+  <%= form.label "Senha",:class => "sr-only" %>
+  <%= form.password_field :senha, placeholder: "Senha", :class => "form-control" %>
 </div>
 
 <div class="field">
-  <%= form.label "Email" %>
-  <%= form.text_field :email%>
+  <%= form.label "Email",:class => "sr-only" %>
+  <%= form.text_field :email, placeholder: "Email", :class => "form-control"%>
 </div>
 
 <div class="actions">
-  <%= form.submit "Registrar"%>
+  <%= form.submit "Registrar",:class => "btn btn-primary col-md-12"%>
 </div>
-<% end %>--!>
+
+<% end %>
+</div>

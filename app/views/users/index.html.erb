@@ -14,7 +14,6 @@
       <td><%= user.senha %></td>
       <td><%= user.email %></td>
       <td><%= link_to 'MOSTRAR', user %></td>
-      <td><%= link_to 'EDITAR', edit_user_path(user) %></td>
       <td><%= link_to 'EXCLUIR', user, method: :delete, data: { confirm: 'VOCÊ TEM CERTEZA QUE DESEJA EXCLUIR?' } %></td>
     </tr>
     <% end %>
