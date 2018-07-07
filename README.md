@@ -76,3 +76,4 @@ Also, [PostgreSQL](https://www.postgresql.org/download/) is required for develop
 
 If you run the tests correctly you can see the coverage in terminal output
 Also you can see more detailed information about coverage in ```coverage``` aplication folder generated
+
