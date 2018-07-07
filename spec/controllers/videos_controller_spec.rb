@@ -40,6 +40,10 @@ RSpec.describe VideosController, type: :controller do
      {title: 'algumacoisa', description: 'teste' }
   }
 
+  let(:valid_user){
+    { nick: "asdfg", senha:"teste12345", email: "asdfg@gmail.com" }
+  }
+
   let(:invalid_attributes) {
     { title: '', description: 'algumacoisa' }
   }
@@ -79,6 +83,13 @@ RSpec.describe VideosController, type: :controller do
       expect(response).to be_success
     end
   end
+  
+  describe "POST #edit_video" do
+    it "returns a sucess response for title and description" do
+      video = Video.create! valid_attributes
+      get :edit, params: {id: video.to_param,title: video.title, description: video.description}, session: valid_session
+      expect(response).to be_success
+    end
 
   describe "GET #channel" do
     it "returns a success response" do
