@@ -1,16 +1,30 @@
-<%= form_tag action: 'login' do %>
-<p>
-<%= label_tag "Nickname:"%>
-<%= text_field_tag :nome%>
-</p>
+<div class="mx-auto login-form text-center" style="padding-top: 170px; width: 300px">
+	<%= form_tag action: 'login' do %>
+	<div class="form-control">
+		<h2 class="text-center"> LOGIN </h2>
+		<p><p>
+			<%= label_tag "Nickname:"%>
+			<p><p>
+				<%= text_field_tag :nome%>
+				<p><p>
+					<%= label_tag "Senha:"%>
+					<p>
+						<%= password_field_tag :password%>
+					</div>
+					<%= submit_tag "Logar", :name => 'Acesso',:class => "btn btn-primary col-lg-12"%>
+					<% end %>
+					<% if @message !=nil%> <%# verifica a mensagem enviada da controladora%>
 
-<p>
-<%= label_tag "Senha:"%>
-<%= password_field_tag :password%>
-</p>
-
-
-<%= submit_tag "Logar",
-	:name => 'Acesso' %>
-
-<% end %>
+					<% if sucess_message @message %>
+					<div class="alert alert-success">
+						<p style="text-align: left;">Mensagem:</p>
+						<strong><%= content_tag(:p , @message, :id => 'good_token') %></strong></br>
+					</div>
+					<% else %>
+					<div class="alert alert-warning">
+						<p style="text-align: left;">Mensagem:</p>
+						<strong><%= content_tag(:p , @message, :id => 'bad_token') %></strong></br>
+					</div>
+					<% end %>
+					<% end %>
+				</div>

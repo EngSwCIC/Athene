@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Athene</title>
-		<%= csrf_meta_tags %>
-		<%= csp_meta_tag %>
+<head>
+	<title>Athene</title>
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
 
-		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-		<%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'  %>
-	</head>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'  %>
+</head>
+ <style>
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #bb5d00;
+    color: white;
+    text-align: center;
+    font-color: white;
+}
+.white{
+	color: white;
+}
+</style>
 
-	<body id=<%= controller_name %>>
-		
-
-		<form action='buscar'>
-			<ul style='list-style: none;'><li>
+<body id=<%= controller_name %>>
+<div style="background-color: #bb5d00;">
+	<form action='buscar'>
+		<ul style='list-style: none;'><li>
 			<a href='/'><img src='/imgs/athene_logo.jpg' width=131 height=47></a> &nbsp&nbsp&nbsp
-					<%= text_field_tag :titulo%> 
-					<%= submit_tag "Pusca"%>
+			<%= text_field_tag :titulo%> 
+			<%= submit_tag "Pusca"%>
 
 			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-			<a href='/upload'>Upload</a>
+			<a style="color:white;font-size: 25px" href='/upload'>Upload</a>
 			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
 			<% if cookies[:login].nil?%> <%# verifica se o usuario esta logado%>
-				<a href='/registrar'>Registrar</a>
-				&nbsp&nbsp
-				<a href='/login'>Logar</a>
+			<a style="color:white;font-size: 25px" href='/registrar'>Registrar</a>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<a style="color:white;font-size: 25px" href='/login'>Logar</a>
 			<% else%> <%# caso esteja cria um link para que o usuario possa deslogar%>
-				<%= link_to "Logout", :controller => 'autenticacao', :action => 'logout'%>
+			<a style="color:white;font-size: 25px" href='/autenticacao/logout'>Logout</a>
 			<% end%>
-			</ul></li>
-		</form>
+		</ul></li>
+	</form>
+</div>
+	<%= yield %>
 
-
-		<%= yield %>
-
-		<ul><li>
-			<a href='/'>Sobre</a> &nbsp&nbsp&nbsp
-			<a href='/'>FAQ</a> &nbsp&nbsp&nbsp
-			<a href='/'>Contato</a> &nbsp&nbsp&nbsp
-
+	
+<div class="footer">
+  <ul><li>
+		<a style="color:white;font-size: 25px" href='/'>Sobre</a> &nbsp&nbsp&nbsp
+		<a style="color:white;font-size: 25px" href='/'>FAQ</a> &nbsp&nbsp&nbsp
+		<a style="color:white;font-size: 25px" href='/'>Contato</a> &nbsp&nbsp&nbsp
+</div> 
 	</body>
-</html>
+	</html>

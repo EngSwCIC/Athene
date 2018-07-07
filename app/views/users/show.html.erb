@@ -1,19 +1,41 @@
+<!doctype html>
+<html lang="pt">  
+<body>
+	<div class="mx-auto" style="padding-top: 170px; width: 300px;">
+		<form action="login" class="login-form text-center">
+			<h2 class="mb-3">VISUALIZAR</h2>
+			<input type="name" id="inputName" class="form-control" placeholder="<%= @user.nick %>"readonly autofocus>
+			<input type="password" id="inputPassword" class="form-control" placeholder="<%= @user.senha %>" readonly>
+			<input type="name" id="inputEmail" class="form-control" placeholder="<%= @user.email %>" readonly>
+				<p> <%= link_to 'VOLTAR', users_path, :class => "btn btn-primary col-lg-12"  %>  </p>
+		</div>
+	</form>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+<!--
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nick:</strong>
-  <%= @user.nick %>
+	<strong>Nick:</strong>
+	<%= @user.nick %>
 </p>
 
 <p>
-  <strong>Senha:</strong>
-  <%= @user.senha %>
+	<strong>Senha:</strong>
+	<%= @user.senha %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+	<strong>Email:</strong>
+	<%= @user.email %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %>--!>

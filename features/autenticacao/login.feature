@@ -40,4 +40,9 @@ Scenario: Login com usuario inexistente
 	|nome    |   teste420     |
 	|password|   teste123456  |
 	And clicar em "Logar"
-	Then eu receberei uma mensagem da pagina de login "Erro Usuario Inexistente"		
+	Then eu receberei uma mensagem da pagina de login "Erro Usuario Inexistente"
+
+Scenario: Logout dado que o usuário esteja logado
+   Given eu esteja na pagina de login e esteja logado
+   When eu clicar no botao "logout" em login
+   Then irei deslogar da aplicacao		

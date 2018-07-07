@@ -1,3 +1,35 @@
+<table class="table table-info">
+  <thead><h1>USUÁRIOS</h1>
+    <tr>
+      <th scope="col">Titulo</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Caminho do arquivo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+   <% if !@videos.nil? %>
+     <% @videos.each do |video| %>
+       <tr>
+         <td><%= video.title %></td>
+         <td><%= video.description %></td>
+         <td><%= video.file_path %></td>
+         <td><%= link_to 'MOSTRAR', video %></td>
+         <td><%= link_to 'EDITAR', edit_video_path(video) %></td>
+         <td><%= link_to 'EXCLUIR', video, method: :delete, data: { confirm: '' } %></td>
+       </tr>
+     <% end %>
+    <% end %>
+  </tbody>
+        <div class="btn-lg  col-md-3">  
+         <p> <%= link_to 'NOVO VÍDEO', '/upload', :class => "btn btn-primary col-lg-6" %> </p>
+      </div>
+</table>
+<BR><BR><BR>
+
+
+
+<!--
 <p id="notice"><%= notice %></p>
 
 <h1>Videos</h1>
