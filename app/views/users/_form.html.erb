@@ -1,35 +1,41 @@
-
 <%= form_with(model: user, local: true) do |form| %>
-<% if user.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+</div>
+<div class="mx-auto login-form text-center" style="padding-top: 170px; width: 300px">
+  <div class="form-control">
+  <h2 class="text-center"> REGISTRAR </h2>
+  <div class="field">
+    <%= form.label "Nickname",:class => "sr-only" %>
+    <%= form.text_field :nick, placeholder: "Nickname", :class => "form-control" %>
+  </div>
 
+  <div class="field">
+    <%= form.label "Senha",:class => "sr-only" %>
+    <%= form.password_field :senha, placeholder: "Senha", :class => "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Email",:class => "sr-only" %>
+    <%= form.text_field :email, placeholder: "Email", :class => "form-control"%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Registrar",:class => "btn btn-primary col-md-12"%>
+  </div>
+  <% end %>
+   <div>
+        <div class="alert alert alert-warning">
+          <p style="text-align: left;">Mensagem:</p>
+          <% if notice %>
+<p id='notify'><%= notice %><p>
+<% end%>
+          <strong><% if user.errors.any? %>
+<div id="error_explanation">
   <ul>
     <% user.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
-
-<% end %>
-<h2 class="text-center"> REGISTRAR </h2>
-<div class="field">
-  <%= form.label "Nickname",:class => "sr-only" %>
-  <%= form.text_field :nick, placeholder: "Nickname", :class => "form-control" %>
+  <% end %></strong></br>
 </div>
-
-<div class="field">
-  <%= form.label "Senha",:class => "sr-only" %>
-  <%= form.password_field :senha, placeholder: "Senha", :class => "form-control" %>
 </div>
-
-<div class="field">
-  <%= form.label "Email",:class => "sr-only" %>
-  <%= form.text_field :email, placeholder: "Email", :class => "form-control"%>
-</div>
-
-<div class="actions">
-  <%= form.submit "Registrar",:class => "btn btn-primary col-md-12"%>
-</div>
-
-<% end %>
 </div>

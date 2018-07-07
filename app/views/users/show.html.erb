@@ -7,12 +7,7 @@
 			<input type="name" id="inputName" class="form-control" placeholder="<%= @user.nick %>"readonly autofocus>
 			<input type="password" id="inputPassword" class="form-control" placeholder="<%= @user.senha %>" readonly>
 			<input type="name" id="inputEmail" class="form-control" placeholder="<%= @user.email %>" readonly>
-				<p> <%= link_to 'EDITAR', edit_user_path(@user), :class => "btn btn-primary col-lg-12"  %>
 				<p> <%= link_to 'VOLTAR', users_path, :class => "btn btn-primary col-lg-12"  %>  </p>
-			<div class="alert alert-info">
-				<p style="text-align: left;">Mensagem:</p>
-				<strong>i'm a message</strong></br>
-			</div>
 		</div>
 	</form>
 </div>

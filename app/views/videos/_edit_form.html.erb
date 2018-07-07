@@ -1,15 +1,23 @@
-<%= form_tag :url => { :controller => 'videos', :id => "#{@video.id}" } do %>
-<p>
-<%= label_tag "Título:"%>
-<%= text_field_tag :title%>
-</p>
+<div class="mx-auto login-form text-center" style="padding-top: 170px; width: 350px">
+	<div class="form-control">
+		<h2 class="text-center"> EDITAR VÍDEOS </h2>
+		<%= form_tag :url => { :controller => 'videos', :id => "#{@video.id}" } do %>
+		<p>
+			<%= label_tag "Título:"%>
+			<%= text_field_tag :title%>
+		</p>
+		<p>
+			<%= label_tag "Descrição:"%>
+			<%= text_area_tag :description%>
+		</p>
+		<%= submit_tag "Editar",:name => 'edit', :class => "btn btn-primary col-md-12"  %>
+		<% if !notice.nil? %>
+		<div class="alert alert-warning">
+			<p style="text-align: left;">Mensagem:</p>
+			<strong><%= content_tag(:p , notice, :id => 'bad_token') %></strong></br>
+		</div>
 
-<p>
-<%= label_tag "Description:"%>
-<%= text_area_tag :description%>
-</p>
-
-
-<%= submit_tag "Edit",
-	:name => 'edit' %>
-<% end %>
+		<% end %>
+		<% end %>
+	</div>
+</div>
